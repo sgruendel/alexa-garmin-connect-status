@@ -1,0 +1,169 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "gc status",
+      "intents": [
+        {
+          "name": "GarminConnectStatusIntent",
+          "slots": [
+            {
+              "name": "item",
+              "type": "LIST_OF_ITEMS"
+            }
+          ],
+          "samples": [
+            "for the status",
+            "for the current status",
+            "for {item}",
+            "for the status of {item}",
+            "for the current status of {item}"
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        }
+      ],
+      "types": [
+        {
+          "name": "LIST_OF_ITEMS",
+          "values": [
+            {
+              "id": "ActivityDetails",
+              "name": {
+                "value": "activity details"
+              }
+            },
+            {
+              "id": "ActivityUploads",
+              "name": {
+                "value": "activity uploads"
+              }
+            },
+            {
+              "id": "GearTracking",
+              "name": {
+                "value": "gear tracking",
+                "synonyms": [
+                  "gear"
+                ]
+              }
+            },
+            {
+              "id": "Leaderboards",
+              "name": {
+                "value": "leaderboards"
+              }
+            },
+            {
+              "id": "PushAPI(ThirdParties)",
+              "name": {
+                "value": "push API",
+                "synonyms": [
+                  "third parties"
+                ]
+              }
+            },
+            {
+              "id": "Challenges",
+              "name": {
+                "value": "challenges"
+              }
+            },
+            {
+              "id": "Connections",
+              "name": {
+                "value": "connections"
+              }
+            },
+            {
+              "id": "Courses",
+              "name": {
+                "value": "courses"
+              }
+            },
+            {
+              "id": "DailySummary",
+              "name": {
+                "value": "daily summary"
+              }
+            },
+            {
+              "id": "DeviceRegistration",
+              "name": {
+                "value": "device registration"
+              }
+            },
+            {
+              "id": "ModernDashboard",
+              "name": {
+                "value": "dashboard",
+                "synonyms": [
+                  "modern dashboard"
+                ]
+              }
+            },
+            {
+              "id": "MyFitnessPal",
+              "name": {
+                "value": "MyFitnessPal"
+              }
+            },
+            {
+              "id": "Reports",
+              "name": {
+                "value": "reports"
+              }
+            },
+            {
+              "id": "SegmentMatching",
+              "name": {
+                "value": "segment matching"
+              }
+            },
+            {
+              "id": "SleepSync",
+              "name": {
+                "value": "sleep",
+                "synonyms": [
+                  "sleep sync",
+                  "sleep synchronisation"
+                ]
+              }
+            },
+            {
+              "id": "StepSync",
+              "name": {
+                "value": "steps",
+                "synonyms": [
+                  "step sync",
+                  "step synchronisation"
+                ]
+              }
+            },
+            {
+              "id": "Strava",
+              "name": {
+                "value": "Strava"
+              }
+            },
+            {
+              "id": "Workouts",
+              "name": {
+                "value": "workouts"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

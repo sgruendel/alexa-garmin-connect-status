@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Garmin Connect Status</title>
+    <meta name="description" content="Current status of Garmin Connect.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            font-family: "Open Sans", Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        a {
+            color: #11a9ed;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            margin: 0 0 22px 0;
+        }
+
+        .status-symbol {
+            display: inline-block;
+            vertical-align: middle;
+            height: 20px;
+            line-height: 17px;
+            border-radius: 10px;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            margin-top: -3px;
+            margin-right: 8px;
+            padding: 0 2px;
+        }
+
+        .service {
+            margin-top: 11px;
+            padding-top: 11px;
+            border-top: 1px solid #ccc;
+        }
+
+        .red .item {
+            color: #ff0035;
+        }
+
+        .yellow .item {
+            color: #ff9e0d;
+        }
+
+        .green .item {
+            color: #50b012;
+        }
+
+        .status-symbol:after {
+            font-size: 11px;
+            font-weight: normal;
+            padding: 0px 5px;
+        }
+
+        .red .status-symbol {
+            background-color: #ff0035;
+        }
+
+        .red .status-symbol:after {
+            content: 'DOWN';
+        }
+
+        .yellow .status-symbol {
+            background-color: #ff9e0d;
+        }
+
+        .yellow .status-symbol:after {
+            content: 'LIMITED';
+        }
+
+        .green .status-symbol {
+            background-color: #50b012;
+        }
+
+        .green .status-symbol:after {
+            content: 'ONLINE';
+        }
+
+        .status-reasons {
+            margin-top: 5px;
+            margin-left: 3px;
+        }
+    </style>
+    <script>
+
+        // get current time
+        function getTime() {
+            var timeOptions = { timeZoneName: 'short' };
+            var currentDate = new Date();
+            var currentTime = currentDate.toLocaleTimeString('en-US', timeOptions);
+            document.getElementById("time").innerHTML = ' at ' + currentTime;
+        }
+
+    </script>
+
+</head>
+
+<body onload="getTime();">
+
+    <!-- RED STATUS -->
+    <div>
+        <p>Current Status
+            <span id="time"></span>
+            <p></p>
+            <!--        <p>
+            We are currently experiencing a Garmin Connec outage. We are working to correct the issue.
+        </p>-->
+
+            <!-- Geonames issue
+
+        <p>On Sunday we had to disable the timezone look up, this caused some activities to display a start time of GMT. We completed fixing activities that were impacted. We apologize for the inconvience. </p>
+        -->
+
+            <!--Elevation corrections turnes off
+        <p>Elevation correction is currently disabled for activity uploads. 
+        <br>We thank you for your continued patience.</p> 
+        -->
+
+            <!--
+        <p>We are experiencing issues with wellness uploads. Our team is actively investigating the issue. Please check back soon for further status updates about Garmin Connect. We thank you for your continued patience.</p>
+        -->
+            <!-- =================================================================
+        
+         To update the status of an item:
+       
+         1. Change the class on the .service div: red|yellow|green
+         2. If necessary, add content into the .status-reasons div
+        
+    ================================================================== -->
+
+
+            <div id="ActivityDetails" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>ActivityDetails</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="ActivityUploads" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>ActivityUploads</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="Challenges" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>Challenges</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="Connections" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>Connections</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="Courses" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>Courses</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="DailySummary" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>DailySummary</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="DeviceRegistration" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>DeviceRegistration</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="GearTracking" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>GearTracking</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="Leaderboards" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>Leaderboards</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="ModernDashboard" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>ModernDashboard</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="MyFitnessPal" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>MyFitnessPal</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="PushAPI(ThirdParties)" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>PushAPI(ThirdParties)</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="Reports" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>Reports</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="SegmentMatching" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>SegmentMatching</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="SleepSync" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>SleepSync</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="StepSync" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>StepSync</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="Strava" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>Strava</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+            <div id="Workouts" class="service red">
+                <div class="item">
+                    <span class="status-symbol"></span>Workouts</div>
+                <div class="status-reasons">
+
+                </div>
+            </div>
+
+    </div>
+
+</body>
+
+</html>

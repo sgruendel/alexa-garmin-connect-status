@@ -1,0 +1,55 @@
+{
+  "deploy_settings": {
+    "default": {
+      "skill_id": "amzn1.ask.skill.810dc1a2-ca42-4089-8ee1-dc158da9ebdb",
+      "was_cloned": false,
+      "resources": {
+        "manifest": {
+          "eTag": "8d0a236a22bdb1d7137defcd77731f8b"
+        },
+        "interactionModel": {
+          "de-DE": {
+            "eTag": "d55369b523d899bf88de7696ec1fb4eb"
+          },
+          "en-US": {
+            "eTag": "e109adede027cd2fde18091c0d181624"
+          },
+          "en-CA": {
+            "eTag": "e109adede027cd2fde18091c0d181624"
+          },
+          "en-IN": {
+            "eTag": "e109adede027cd2fde18091c0d181624"
+          },
+          "en-AU": {
+            "eTag": "e109adede027cd2fde18091c0d181624"
+          },
+          "en-GB": {
+            "eTag": "e055cdb695ec47f6d6e7b2eeb8d69cd7"
+          }
+        },
+        "lambda": [
+          {
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:garminConnectStatus",
+            "awsRegion": "eu-west-1",
+            "functionName": "garminConnectStatus",
+            "alexaUsage": [
+              "custom/default"
+            ],
+            "revisionId": "79dbfea1-df12-460f-88b3-9ee6e1bb7646"
+          }
+        ]
+      },
+      "merge": {
+        "manifest": {
+          "apis": {
+            "custom": {
+              "endpoint": {
+                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:garminConnectStatus"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

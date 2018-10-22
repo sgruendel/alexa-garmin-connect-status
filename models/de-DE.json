@@ -1,0 +1,197 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "gc status",
+      "intents": [
+        {
+          "name": "GarminConnectStatusIntent",
+          "slots": [
+            {
+              "name": "item",
+              "type": "LIST_OF_ITEMS"
+            }
+          ],
+          "samples": [
+            "nach dem Status",
+            "nach dem aktuellen Status",
+            "nach {item}",
+            "nach dem Status von {item}",
+            "nach dem aktuellen Status von {item}"
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        }
+      ],
+      "types": [
+        {
+          "name": "LIST_OF_ITEMS",
+          "values": [
+            {
+              "id": "ActivityDetails",
+              "name": {
+                "value": "activity details",
+                "synonyms": [
+                  "Aktivitäten"
+                ]
+              }
+            },
+            {
+              "id": "ActivityUploads",
+              "name": {
+                "value": "activity uploads",
+                "synonyms": [
+                  "Aktivität hochladen",
+                  "Aktivität importieren"
+                ]
+              }
+            },
+            {
+              "id": "GearTracking",
+              "name": {
+                "value": "gear tracking",
+                "synonyms": [
+                  "Ausrüstung"
+                ]
+              }
+            },
+            {
+              "id": "Leaderboards",
+              "name": {
+                "value": "leaderboards"
+              }
+            },
+            {
+              "id": "PushAPI(ThirdParties)",
+              "name": {
+                "value": "push API",
+                "synonyms": [
+                  "third parties"
+                ]
+              }
+            },
+            {
+              "id": "Challenges",
+              "name": {
+                "value": "challenges"
+              }
+            },
+            {
+              "id": "Connections",
+              "name": {
+                "value": "connections",
+                "synonyms": [
+                  "Verbindungen"
+                ]
+              }
+            },
+            {
+              "id": "Courses",
+              "name": {
+                "value": "courses",
+                "synonyms": [
+                  "Strecken"
+                ]
+              }
+            },
+            {
+              "id": "DailySummary",
+              "name": {
+                "value": "daily summary",
+                "synonyms": [
+                  "Tagesübersicht"
+                ]
+              }
+            },
+            {
+              "id": "DeviceRegistration",
+              "name": {
+                "value": "device registration",
+                "synonyms": [
+                  "Geräteregistrierung",
+                  "Registrierung von Geräten"
+                ]
+              }
+            },
+            {
+              "id": "ModernDashboard",
+              "name": {
+                "value": "dashboard",
+                "synonyms": [
+                  "modern dashboard"
+                ]
+              }
+            },
+            {
+              "id": "MyFitnessPal",
+              "name": {
+                "value": "MyFitnessPal"
+              }
+            },
+            {
+              "id": "Reports",
+              "name": {
+                "value": "reports",
+                "synonyms": [
+                  "Berichte"
+                ]
+              }
+            },
+            {
+              "id": "SegmentMatching",
+              "name": {
+                "value": "segment matching"
+              }
+            },
+            {
+              "id": "SleepSync",
+              "name": {
+                "value": "sleep",
+                "synonyms": [
+                  "sleep sync",
+                  "sleep synchronization",
+                  "Schlaf"
+                ]
+              }
+            },
+            {
+              "id": "StepSync",
+              "name": {
+                "value": "steps",
+                "synonyms": [
+                  "step sync",
+                  "step synchronization",
+                  "Schritte"
+                ]
+              }
+            },
+            {
+              "id": "Strava",
+              "name": {
+                "value": "Strava"
+              }
+            },
+            {
+              "id": "Workouts",
+              "name": {
+                "value": "workouts",
+                "synonyms": [
+                  "Trainings"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

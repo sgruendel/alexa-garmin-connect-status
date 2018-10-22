@@ -1,0 +1,130 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "de-DE": {
+          "summary": "Garmin Connect Status Skill (inoffiziell)",
+          "examplePhrases": [
+            "Alexa, öffne GC Status",
+            "Alexa, frage GC Status nach Challenges",
+            "Alexa, frage GC Status nach Schritten"
+          ],
+          "keywords": [
+            "garmin",
+            "connect",
+            "status"
+          ],
+          "name": "GC Status",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3556/b2a7e325175e4fd0824c025365305761/APP_ICON?versionId=3Xg3T1ftCCOyC8dWP1uIOkcEw0vfRNTl&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540218491&Signature=5jBp8YimNEV3o2bh0VmhGHPhP98%3D",
+          "description": "Überprüft den aktuellen Status von Garmin Connect wie gerade angezeigt auf https://connect.garmin.com/status.\n\nDieser Skill ist ein inoffizielles Fan Projekt.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/b92b/a94f5e1e80e945b48d350c6b46208de7/APP_ICON_LARGE?versionId=s9q8xUwZxbGJw_2k3zA7UKKqQGNlOALI&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540218491&Signature=h8Nos%2BGWpVjE7fqB7sX6WqovqoE%3D"
+        },
+        "en-US": {
+          "summary": "Garmin Connect Status skill (unofficial)",
+          "examplePhrases": [
+            "Alexa, open GC Status",
+            "Alexa, ask GC Status for Challenges",
+            "Alexa, ask GC Status for Steps"
+          ],
+          "keywords": [
+            "garmin",
+            "connect",
+            "status"
+          ],
+          "name": "GC Status",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3556/b2a7e325175e4fd0824c025365305761/APP_ICON?versionId=3Xg3T1ftCCOyC8dWP1uIOkcEw0vfRNTl&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540218491&Signature=5jBp8YimNEV3o2bh0VmhGHPhP98%3D",
+          "description": "Check the current Garmin Connect status as reported on https://connect.garmin.com/status.\n\nThis skill is an unofficial fan project.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/b92b/a94f5e1e80e945b48d350c6b46208de7/APP_ICON_LARGE?versionId=s9q8xUwZxbGJw_2k3zA7UKKqQGNlOALI&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540218491&Signature=h8Nos%2BGWpVjE7fqB7sX6WqovqoE%3D"
+        },
+        "en-CA": {
+          "summary": "Garmin Connect Status skill (unofficial)",
+          "examplePhrases": [
+            "Alexa, open GC Status",
+            "Alexa, ask GC Status for Challenges",
+            "Alexa, ask GC Status for Steps"
+          ],
+          "keywords": [
+            "garmin",
+            "connect",
+            "status"
+          ],
+          "name": "GC Status",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3556/b2a7e325175e4fd0824c025365305761/APP_ICON?versionId=3Xg3T1ftCCOyC8dWP1uIOkcEw0vfRNTl&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540218491&Signature=5jBp8YimNEV3o2bh0VmhGHPhP98%3D",
+          "description": "Check the current Garmin Connect status as reported on https://connect.garmin.com/status.\n\nThis skill is an unofficial fan project.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/b92b/a94f5e1e80e945b48d350c6b46208de7/APP_ICON_LARGE?versionId=s9q8xUwZxbGJw_2k3zA7UKKqQGNlOALI&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540218491&Signature=h8Nos%2BGWpVjE7fqB7sX6WqovqoE%3D"
+        },
+        "en-IN": {
+          "summary": "Garmin Connect Status skill (unofficial)",
+          "examplePhrases": [
+            "Alexa, open GC Status",
+            "Alexa, ask GC Status for Challenges",
+            "Alexa, ask GC Status for Steps"
+          ],
+          "keywords": [
+            "garmin",
+            "connect",
+            "status"
+          ],
+          "name": "GC Status",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3556/b2a7e325175e4fd0824c025365305761/APP_ICON?versionId=3Xg3T1ftCCOyC8dWP1uIOkcEw0vfRNTl&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540218491&Signature=5jBp8YimNEV3o2bh0VmhGHPhP98%3D",
+          "description": "Check the current Garmin Connect status as reported on https://connect.garmin.com/status.\n\nThis skill is an unofficial fan project.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/b92b/a94f5e1e80e945b48d350c6b46208de7/APP_ICON_LARGE?versionId=s9q8xUwZxbGJw_2k3zA7UKKqQGNlOALI&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540218491&Signature=h8Nos%2BGWpVjE7fqB7sX6WqovqoE%3D"
+        },
+        "en-AU": {
+          "summary": "Garmin Connect Status skill (unofficial)",
+          "examplePhrases": [
+            "Alexa, open GC Status",
+            "Alexa, ask GC Status for Challenges",
+            "Alexa, ask GC Status for Steps"
+          ],
+          "keywords": [
+            "garmin",
+            "connect",
+            "status"
+          ],
+          "name": "GC Status",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3556/b2a7e325175e4fd0824c025365305761/APP_ICON?versionId=3Xg3T1ftCCOyC8dWP1uIOkcEw0vfRNTl&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540218491&Signature=5jBp8YimNEV3o2bh0VmhGHPhP98%3D",
+          "description": "Check the current Garmin Connect status as reported on https://connect.garmin.com/status.\n\nThis skill is an unofficial fan project.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/b92b/a94f5e1e80e945b48d350c6b46208de7/APP_ICON_LARGE?versionId=s9q8xUwZxbGJw_2k3zA7UKKqQGNlOALI&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540218491&Signature=h8Nos%2BGWpVjE7fqB7sX6WqovqoE%3D"
+        },
+        "en-GB": {
+          "summary": "Garmin Connect Status skill (unofficial)",
+          "examplePhrases": [
+            "Alexa, open GC Status",
+            "Alexa, ask GC Status for Challenges",
+            "Alexa, ask GC Status for Steps"
+          ],
+          "keywords": [
+            "garmin",
+            "connect",
+            "status"
+          ],
+          "name": "GC Status",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3556/b2a7e325175e4fd0824c025365305761/APP_ICON?versionId=3Xg3T1ftCCOyC8dWP1uIOkcEw0vfRNTl&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540218491&Signature=5jBp8YimNEV3o2bh0VmhGHPhP98%3D",
+          "description": "Check the current Garmin Connect status as reported on https://connect.garmin.com/status.\n\nThis skill is an unofficial fan project.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/b92b/a94f5e1e80e945b48d350c6b46208de7/APP_ICON_LARGE?versionId=s9q8xUwZxbGJw_2k3zA7UKKqQGNlOALI&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540218491&Signature=h8Nos%2BGWpVjE7fqB7sX6WqovqoE%3D"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Check https://connect.garmin.com/status for current status as reported by this skill.",
+      "category": "HEALTH_AND_FITNESS",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "./src"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}

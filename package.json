@@ -1,0 +1,71 @@
+{
+  "name": "alexa-garmin-connect-status",
+  "version": "1.0.0",
+  "description": "Alexa Skill for checking Garmin Connect status",
+  "main": "index.js",
+  "scripts": {
+    "invoke": "aws lambda invoke --function-name garminConnectStatus --payload fileb://test/events/alexa-start-session.json test/out.txt && cat test/out.txt",
+    "test": "nyc --reporter=lcov --reporter=text mocha",
+    "deploy-lambda": "npm prune --production && npm run lambda-zip && npm run lambda-update && npm install",
+    "lambda-zip": "zip -x 'node_modules/.cache/*' -r index.zip lib node_modules && cd src && zip ../index.zip *",
+    "lambda-update": "aws lambda update-function-code --function-name garminConnectStatus --zip-file fileb://index.zip",
+    "deploy-skill": "ask deploy --target skill",
+    "deploy-model": "ask deploy --target model"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgruendel/alexa-garmin-connect-status.git"
+  },
+  "author": "Stefan Gründel",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/sgruendel/alexa-garmin-connect-status/issues"
+  },
+  "homepage": "https://github.com/sgruendel/alexa-garmin-connect-status#readme",
+  "dependencies": {
+    "ask-sdk-core": "^2.0.9",
+    "ask-sdk-model": "^1.5.0",
+    "cheerio": "^1.0.0-rc.2",
+    "dashbot": "^10.1.1",
+    "i18next": "^11.9.0",
+    "i18next-sprintf-postprocessor": "^0.2.2",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
+  },
+  "devDependencies": {
+    "alexa-skill-test-framework": "^1.2.2",
+    "chai": "^4.1.2",
+    "eslint": "^5.6.0",
+    "eslint-config-strongloop": "^2.1.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2017
+    },
+    "extends": "strongloop",
+    "env": {
+      "es6": true,
+      "node": true,
+      "mocha": true
+    },
+    "rules": {
+      "indent": [
+        "error",
+        4
+      ],
+      "max-len": [
+        "error",
+        120,
+        4,
+        {
+          "ignoreComments": true,
+          "ignoreUrls": true,
+          "ignoreStrings": true,
+          "ignorePattern": "^\\s*var\\s.+=\\s*(require\\s*\\()|(/)"
+        }
+      ]
+    }
+  }
+}
