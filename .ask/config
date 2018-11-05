@@ -2,10 +2,10 @@
   "deploy_settings": {
     "default": {
       "skill_id": "amzn1.ask.skill.810dc1a2-ca42-4089-8ee1-dc158da9ebdb",
-      "was_cloned": false,
+      "was_cloned": true,
       "resources": {
         "manifest": {
-          "eTag": "8d0a236a22bdb1d7137defcd77731f8b"
+          "eTag": "bd4533fc420f8aa7dbda40acc74946b6"
         },
         "interactionModel": {
           "de-DE": {
@@ -29,13 +29,13 @@
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:garminConnectStatus",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:garminConnectStatus:1",
             "awsRegion": "eu-west-1",
             "functionName": "garminConnectStatus",
             "alexaUsage": [
               "custom/default"
             ],
-            "revisionId": "79dbfea1-df12-460f-88b3-9ee6e1bb7646"
+            "revisionId": "52f23c19-5b14-4555-9e12-2e5af1e94219"
           }
         ]
       },
@@ -44,7 +44,7 @@
           "apis": {
             "custom": {
               "endpoint": {
-                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:garminConnectStatus"
+                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:garminConnectStatus:1"
               }
             }
           }
