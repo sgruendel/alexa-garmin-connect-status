@@ -17,13 +17,14 @@ const languageStrings = {
             HELP_MESSAGE: 'You can say „Ask GC status for current status“, or you can say „Exit“. What can I help you with?',
             HELP_REPROMPT: 'What can I help you with?',
             STOP_MESSAGE: 'Goodbye!',
-            ITEM_GREEN_MESSAGE: 'Currently, {{value.name}} is green.',
-            ITEM_YELLOW_MESSAGE: 'Currently, {{value.name}} is yellow.',
-            ITEM_RED_MESSAGE: 'Currently, {{value.name}} is red.',
-            ALL_GREEN_MESSAGE: 'Currently, everything is green.',
-            SOME_YELLOW_MESSAGE: 'Currently, some services are yellow.',
-            SOME_RED_MESSAGE: 'Currently, some services are red.',
-            CANT_GET_STATUS_MESSAGE: "I'm sorry, I can't get the status currently.",
+            ERROR_MESSAGE: 'Sorry, I can\'t understand the command. Please say again?',
+            ITEM_GREEN_MESSAGE: 'Currently, {{value.name}} is green on Garmin Connect.',
+            ITEM_YELLOW_MESSAGE: 'Currently, {{value.name}} is yellow on Garmin Connect.',
+            ITEM_RED_MESSAGE: 'Currently, {{value.name}} is red on Garmin Connect.',
+            ALL_GREEN_MESSAGE: 'Currently, everything is green on Garmin Connect.',
+            SOME_YELLOW_MESSAGE: 'Currently, some services are yellow on Garmin Connect.',
+            SOME_RED_MESSAGE: 'Currently, some services are red on Garmin Connect.',
+            CANT_GET_STATUS_MESSAGE: "I'm sorry, I can't get the status on Garmin Connect currently.",
         },
     },
 
@@ -31,14 +32,15 @@ const languageStrings = {
         translation: {
             HELP_MESSAGE: 'Du kannst sagen „Frage GC Status nach dem aktuellen Status“, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
             HELP_REPROMPT: 'Wie kann ich dir helfen?',
-            STOP_MESSAGE: 'Auf Wiedersehen!',
-            ITEM_GREEN_MESSAGE: 'Im Moment ist {{value.name}} auf grün.',
-            ITEM_YELLOW_MESSAGE: 'Im Moment ist {{value.name}} auf gelb.',
-            ITEM_RED_MESSAGE: 'Im Moment ist {{value.name}} auf rot.',
-            ALL_GREEN_MESSAGE: 'Im Moment ist alles auf grün.',
-            SOME_YELLOW_MESSAGE: 'Im Moment sind einige Schnittstellen auf gelb.',
-            SOME_RED_MESSAGE: 'Im Moment sind einige Schnittstellen auf rot.',
-            CANT_GET_STATUS_MESSAGE: 'Es tut mir leid, ich kann den Status gerade nicht abfragen.',
+            STOP_MESSAGE: '<say-as interpret-as="interjection">bis dann</say-as>.',
+            ERROR_MESSAGE: 'Entschuldigung, das habe ich nicht verstanden. Kannst du das bitte wiederholen?',
+            ITEM_GREEN_MESSAGE: 'Im Moment ist <lang xml:lang="en-US">{{value.name}}</lang> auf grün bei Garmin Connect.',
+            ITEM_YELLOW_MESSAGE: 'Im Moment ist <lang xml:lang="en-US">{{value.name}}</lang> auf gelb bei Garmin Connect.',
+            ITEM_RED_MESSAGE: 'Im Moment ist <lang xml:lang="en-US">{{value.name}}</lang> auf rot bei Garmin Connect.',
+            ALL_GREEN_MESSAGE: 'Im Moment ist alles auf grün bei Garmin Connect.',
+            SOME_YELLOW_MESSAGE: 'Im Moment sind einige Schnittstellen auf gelb bei Garmin Connect.',
+            SOME_RED_MESSAGE: 'Im Moment sind einige Schnittstellen auf rot bei Garmin Connect.',
+            CANT_GET_STATUS_MESSAGE: 'Es tut mir leid, ich kann den Status von Garmin Connect gerade nicht abfragen.',
         },
     },
 };
@@ -51,28 +53,31 @@ const GarminConnectStatusIntentHandler = {
     },
     async handle(handlerInput) {
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
-        const { slots } = handlerInput.requestEnvelope.request.intent;
-        console.log('item', JSON.stringify(slots.item));
-
+        const slots = handlerInput.requestEnvelope.request.intent && handlerInput.requestEnvelope.request.intent.slots;
         var value;
-        const rpa = slots.item
-            && slots.item.resolutions
-            && slots.item.resolutions.resolutionsPerAuthority[0];
-        switch (rpa.status.code) {
-        case ER_SUCCESS_NO_MATCH:
-            console.error('no match for item', slots.item.value);
-            break;
+        if (slots) {
+            console.log('item', JSON.stringify(slots.item));
 
-        case ER_SUCCESS_MATCH:
-            if (rpa.values.length > 1) {
-                console.error('multiple matches', slots.item.value);
-            } else {
-                value = rpa.values[0].value;
+            const rpa = slots.item
+                && slots.item.resolutions
+                && slots.item.resolutions.resolutionsPerAuthority[0];
+            if (rpa) {
+                switch (rpa.status.code) {
+                case ER_SUCCESS_NO_MATCH:
+                    console.error('no match for item', slots.item.value);
+                    break;
+
+                case ER_SUCCESS_MATCH:
+                    if (rpa.values.length > 1) {
+                        console.error('multiple matches', slots.item.value);
+                    }
+                    value = rpa.values[0].value;
+                    break;
+
+                default:
+                    console.error('unexpected status code', rpa.status.code);
+                }
             }
-            break;
-
-        default:
-            console.error('unexpected status code', rpa.status.code);
         }
 
         var response;
@@ -81,25 +86,34 @@ const GarminConnectStatusIntentHandler = {
                 console.log('status', status);
                 var speechOutput;
 
-                const greenItem = status.green.find((i) => { return i.item === value.id; });
-                const yellowItem = status.green.find((i) => { return i.item === value.id; });
-                const redItem = status.green.find((i) => { return i.item === value.id; });
-                if (greenItem) {
-                    console.log('green', greenItem);
-                    speechOutput = requestAttributes.t('ITEM_GREEN_MESSAGE', { value });
-                } else if (yellowItem) {
-                    console.log('yellow', yellowItem);
-                    speechOutput = requestAttributes.t('ITEM_YELLOW_MESSAGE', { value });
-                } else if (redItem) {
-                    console.log('red', redItem);
-                    speechOutput = requestAttributes.t('ITEM_RED_MESSAGE', { value });
-                } else if (status.yellow.length === 0 && status.red.length === 0) {
-                    speechOutput = requestAttributes.t('ALL_GREEN_MESSAGE');
-                } else if (status.red.length > 0) {
-                    speechOutput = requestAttributes.t('SOME_RED_MESSAGE');
-                } else if (status.yellow.length > 0) {
-                    speechOutput = requestAttributes.t('SOME_YELLOW_MESSAGE');
+                if (value) {
+                    const greenItem = status.green.find((i) => { return i.item === value.id; });
+                    const yellowItem = status.green.find((i) => { return i.item === value.id; });
+                    const redItem = status.green.find((i) => { return i.item === value.id; });
+                    if (greenItem) {
+                        speechOutput = requestAttributes.t('ITEM_GREEN_MESSAGE', { value });
+                    } else if (yellowItem) {
+                        speechOutput = requestAttributes.t('ITEM_YELLOW_MESSAGE', { value });
+                    } else if (redItem) {
+                        speechOutput = requestAttributes.t('ITEM_RED_MESSAGE', { value });
+                    }
                 }
+
+                if (!speechOutput) {
+                    if (status.yellow.length === 0 && status.red.length === 0) {
+                        speechOutput = requestAttributes.t('ALL_GREEN_MESSAGE');
+                    } else if (status.red.length > 0) {
+                        speechOutput = requestAttributes.t('SOME_RED_MESSAGE');
+                    } else if (status.yellow.length > 0) {
+                        speechOutput = requestAttributes.t('SOME_YELLOW_MESSAGE');
+                    }
+                }
+
+                if (!speechOutput) {
+                    // should never happen
+                    throw new Error('We should never be here: ' + status.green.length + '/' + status.yellow.length + '/' + status.red.length);
+                }
+
                 response = handlerInput.responseBuilder
                     .speak(speechOutput)
                     .getResponse();
@@ -163,9 +177,10 @@ const ErrorHandler = {
     },
     handle(handlerInput, error) {
         console.error('Error handled:', error);
+        const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
         return handlerInput.responseBuilder
-            .speak('Sorry, I can\'t understand the command. Please say again?')
-            .reprompt('Sorry, I can\'t understand the command. Please say again?')
+            .speak(requestAttributes.t('ERROR_MESSAGE'))
+            .reprompt(requestAttributes.t('ERROR_MESSAGE'))
             .getResponse();
     },
 };

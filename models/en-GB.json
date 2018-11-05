@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "gc status",
+      "invocationName": "g.c. status",
       "intents": [
         {
           "name": "GarminConnectStatusIntent",
@@ -132,20 +132,20 @@
             {
               "id": "SleepSync",
               "name": {
-                "value": "sleep",
+                "value": "sleep sync",
                 "synonyms": [
-                  "sleep sync",
-                  "sleep synchronisation"
+                  "sleep",
+                  "sleep synchronization"
                 ]
               }
             },
             {
               "id": "StepSync",
               "name": {
-                "value": "steps",
+                "value": "step sync",
                 "synonyms": [
-                  "step sync",
-                  "step synchronisation"
+                  "steps",
+                  "step synchronization"
                 ]
               }
             },
