@@ -2,10 +2,10 @@
   "deploy_settings": {
     "default": {
       "skill_id": "amzn1.ask.skill.810dc1a2-ca42-4089-8ee1-dc158da9ebdb",
-      "was_cloned": true,
+      "was_cloned": false,
       "resources": {
         "manifest": {
-          "eTag": "bd4533fc420f8aa7dbda40acc74946b6"
+          "eTag": "56b0b69ab83be289198d7a670cbb45ab"
         },
         "interactionModel": {
           "de-DE": {
