@@ -25,8 +25,8 @@ const ER_SUCCESS_NO_MATCH = 'ER_SUCCESS_NO_MATCH';
 const languageStrings = {
     en: {
         translation: {
-            HELP_MESSAGE: 'You can say „Ask GC status for current status“, or you can say „Exit“. What can I help you with?',
-            HELP_REPROMPT: 'What can I help you with?',
+            HELP_MESSAGE: 'I can check the current status of Garmin Connect for you, or of specific components, e.g. Steps, Challenges or Leaderboards. Which component should I check?',
+            HELP_REPROMPT: 'Which component on Garmin Connect should I check, e.g. Steps, Challenges or Leaderboards?',
             STOP_MESSAGE: 'Goodbye!',
             NOT_UNDERSTOOD_MESSAGE: 'Sorry, I can\'t understand the command. Please say again?',
             ITEM_GREEN_MESSAGE: 'Currently, {{value.name}} is green on Garmin Connect.',
@@ -41,8 +41,8 @@ const languageStrings = {
 
     de: {
         translation: {
-            HELP_MESSAGE: 'Du kannst sagen „Frage GC Status nach dem aktuellen Status“, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
-            HELP_REPROMPT: 'Wie kann ich dir helfen?',
+            HELP_MESSAGE: 'Ich kann den aktuellen Status von Garmin Connect für dich ermitteln oder den Status einzelner Komponenten darin, z.B. Schritte, Challenges oder Leaderboards. Welche Komponente soll ich abfragen?',
+            HELP_REPROMPT: 'Welche Komponente von Garmin Connect soll ich abfragen, also z.B. Schritte, Challenges oder Leaderboards?',
             STOP_MESSAGE: '<say-as interpret-as="interjection">bis dann</say-as>.',
             NOT_UNDERSTOOD_MESSAGE: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
             ITEM_GREEN_MESSAGE: 'Im Moment ist <lang xml:lang="en-US">{{value.name}}</lang> auf grün bei Garmin Connect.',

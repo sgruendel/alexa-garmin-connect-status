@@ -30,8 +30,8 @@ describe('Garmin Connect Status Skill', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.HelpIntent'),
-                says: 'You can say „Ask GC status for current status“, or you can say „Exit“. What can I help you with?',
-                reprompts: 'What can I help you with?',
+                says: 'I can check the current status of Garmin Connect for you, or of specific components, e.g. Steps, Challenges or Leaderboards. Which component should I check?',
+                reprompts: 'Which component on Garmin Connect should I check, e.g. Steps, Challenges or Leaderboards?',
                 shouldEndSession: false,
             },
         ]);
