@@ -14,12 +14,14 @@ alexaTest.initialize(
 alexaTest.setLocale('en-US');
 
 describe('Garmin Connect Status Skill', () => {
-    describe('LaunchRequest', () => {
+
+    describe('ErrorHandler', () => {
         alexaTest.test([
             {
-                request: alexaTest.getLaunchRequest(),
-                saysLike: 'Currently, everything is green on Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
+                request: alexaTest.getIntentRequest(''),
+                says: "Sorry, I can't understand the command. Please say again?",
+                reprompts: "Sorry, I can't understand the command. Please say again?",
+                shouldEndSession: false,
             },
         ]);
     });
@@ -64,13 +66,12 @@ describe('Garmin Connect Status Skill', () => {
         ]);
     });
 
-    describe('ErrorHandler', () => {
+    describe('LaunchRequest', () => {
         alexaTest.test([
             {
-                request: alexaTest.getIntentRequest(''),
-                says: "Sorry, I can't understand the command. Please say again?",
-                reprompts: "Sorry, I can't understand the command. Please say again?",
-                shouldEndSession: false,
+                request: alexaTest.getLaunchRequest(),
+                saysLike: 'Currently, everything is green on Garmin Connect.',
+                repromptsNothing: true, shouldEndSession: true,
             },
         ]);
     });
@@ -231,5 +232,4 @@ describe('Garmin Connect Status Skill', () => {
             },
         ]);
     });
-
 });

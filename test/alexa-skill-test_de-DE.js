@@ -14,12 +14,14 @@ alexaTest.initialize(
 alexaTest.setLocale('de-DE');
 
 describe('Garmin Connect Status Skill', () => {
-    describe('LaunchRequest', () => {
+
+    describe('ErrorHandler', () => {
         alexaTest.test([
             {
-                request: alexaTest.getLaunchRequest(),
-                saysLike: 'Im Moment ist alles auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
+                request: alexaTest.getIntentRequest(''),
+                says: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
+                reprompts: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
+                shouldEndSession: false,
             },
         ]);
     });
@@ -64,13 +66,12 @@ describe('Garmin Connect Status Skill', () => {
         ]);
     });
 
-    describe('ErrorHandler', () => {
+    describe('LaunchRequest', () => {
         alexaTest.test([
             {
-                request: alexaTest.getIntentRequest(''),
-                says: 'Entschuldigung, das habe ich nicht verstanden. Kannst du das bitte wiederholen?',
-                reprompts: 'Entschuldigung, das habe ich nicht verstanden. Kannst du das bitte wiederholen?',
-                shouldEndSession: false,
+                request: alexaTest.getLaunchRequest(),
+                saysLike: 'Im Moment ist alles auf grün bei Garmin Connect.',
+                repromptsNothing: true, shouldEndSession: true,
             },
         ]);
     });
@@ -255,5 +256,4 @@ describe('Garmin Connect Status Skill', () => {
             },
         ]);
     });
-
 });
