@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "g.c. status",
+      "invocationName": "g. c. status",
       "intents": [
         {
           "name": "GarminConnectStatusIntent",
@@ -12,9 +12,13 @@
             }
           ],
           "samples": [
+            "for status",
+            "for current status",
             "for the status",
             "for the current status",
             "for {item}",
+            "for status of {item}",
+            "for current status of {item}",
             "for the status of {item}",
             "for the current status of {item}"
           ]
