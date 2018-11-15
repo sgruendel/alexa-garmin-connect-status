@@ -134,10 +134,9 @@ const GarminConnectStatusIntentHandler = {
                     .getResponse();
             })
             .catch((err) => {
-                logger.error(err);
-                const speechOutput = requestAttributes.t('CANT_GET_STATUS_MESSAGE');
+                logger.error(err.stack || err.toString());
                 response = handlerInput.responseBuilder
-                    .speak(speechOutput)
+                    .speak(requestAttributes.t('CANT_GET_STATUS_MESSAGE'))
                     .getResponse();
             });
 
@@ -191,7 +190,7 @@ const SessionEndedRequestHandler = {
                 logger.error(request.error.type + ': ' + request.error.message);
             }
         } catch (err) {
-            logger.error(err, request);
+            logger.error(err.stack || err.toString(), request);
         }
 
         logger.debug('session ended', request);
@@ -204,8 +203,7 @@ const ErrorHandler = {
         return true;
     },
     handle(handlerInput, error) {
-        logger.error(error.message,
-            { request: handlerInput.requestEnvelope.request, stack: error.stack, error: error });
+        logger.error(error.stack || error.toString(), handlerInput.requestEnvelope.request);
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
         const speechOutput = requestAttributes.t('NOT_UNDERSTOOD_MESSAGE');
         return handlerInput.responseBuilder
