@@ -1,11 +1,11 @@
 {
   "name": "alexa-garmin-connect-status",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Alexa Skill for checking Garmin Connect status",
   "main": "index.js",
   "scripts": {
     "invoke": "aws lambda invoke --function-name garminConnectStatus --payload fileb://test/events/alexa-start-session.json test/out.txt && cat test/out.txt",
-    "test": "nyc --reporter=lcov --reporter=text mocha",
+    "test": "nyc --reporter=lcov --reporter=text mocha --timeout=10000",
     "deploy-lambda": "npm prune --production && npm run lambda-zip && npm run lambda-update && npm install",
     "lambda-zip": "zip -x 'node_modules/.cache/*' -r index.zip node_modules && cd src && zip ../index.zip *",
     "lambda-update": "aws lambda update-function-code --function-name garminConnectStatus --zip-file fileb://index.zip",
@@ -16,6 +16,12 @@
     "type": "git",
     "url": "git+https://github.com/sgruendel/alexa-garmin-connect-status.git"
   },
+  "keywords": [
+    "alexa",
+    "skill",
+    "garmin",
+    "connect"
+  ],
   "author": "Stefan Gründel",
   "license": "GPL-3.0",
   "bugs": {
@@ -34,12 +40,12 @@
     "winston": "^3.1.0"
   },
   "devDependencies": {
-    "alexa-skill-test-framework": "^1.2.2",
-    "chai": "^4.1.2",
-    "eslint": "^5.6.0",
+    "alexa-skill-test-framework": "^1.2.4",
+    "chai": "^4.2.0",
+    "eslint": "^5.9.0",
     "eslint-config-strongloop": "^2.1.0",
     "mocha": "^5.2.0",
-    "nyc": "^13.0.1"
+    "nyc": "^13.1.0"
   },
   "eslintConfig": {
     "parserOptions": {
