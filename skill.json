@@ -106,7 +106,7 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Check https://connect.garmin.com/status for current status as reported by this skill.\n\nChanges to previous version (lambda v1):\n* changed invocation name and sample utterances according to certification feedback\n* optimized HelpIntent handling",
+      "testingInstructions": "Check https://connect.garmin.com/status for current status as reported by this skill.\n\nChanges to previous version (Lambda version 2):\n* changed German slot values to German words according to certification feedback",
       "category": "HEALTH_AND_FITNESS",
       "distributionCountries": []
     },

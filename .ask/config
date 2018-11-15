@@ -5,11 +5,11 @@
       "was_cloned": false,
       "resources": {
         "manifest": {
-          "eTag": "b6c4cff676bd6ad42d5dd1aa60966e1a"
+          "eTag": "c3260f2d1e4644b1d378827df077b0bd"
         },
         "interactionModel": {
           "de-DE": {
-            "eTag": "7a62842360ebfb127d2fe4fe5a38f1b3"
+            "eTag": "fe95464ed61a8508a8f99dd42d5f9c1f"
           },
           "en-US": {
             "eTag": "0dda282b516e7f19f8d43eb71717bbda"
@@ -29,7 +29,7 @@
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:garminConnectStatus:2",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:garminConnectStatus:3",
             "awsRegion": "eu-west-1",
             "functionName": "garminConnectStatus",
             "alexaUsage": [
@@ -44,7 +44,7 @@
           "apis": {
             "custom": {
               "endpoint": {
-                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:garminConnectStatus:2"
+                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:garminConnectStatus:3"
               }
             }
           }
