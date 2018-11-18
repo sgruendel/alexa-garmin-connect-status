@@ -12,12 +12,12 @@
             }
           ],
           "samples": [
-            "nach dem Status",
-            "nach dem aktuellen Status",
-            "nach {item}",
-            "nach dem Status von {item}",
-            "nach dem aktuellen Status von {item}",
-            "nach {item} Status"
+            "dem Status",
+            "dem aktuellen Status",
+            "{item}",
+            "dem Status von {item}",
+            "dem aktuellen Status von {item}",
+            "{item} Status"
           ]
         },
         {
@@ -40,10 +40,7 @@
             {
               "id": "ActivityDetails",
               "name": {
-                "value": "Aktivitäten",
-                "synonyms": [
-                  "activity details"
-                ]
+                "value": "Aktivitäten"
               }
             },
             {
@@ -51,27 +48,20 @@
               "name": {
                 "value": "Aktivität hochladen",
                 "synonyms": [
-                  "Aktivität importieren",
-                  "activity uploads"
+                  "Aktivität importieren"
                 ]
               }
             },
             {
               "id": "GearTracking",
               "name": {
-                "value": "Ausrüstung",
-                "synonyms": [
-                  "gear tracking"
-                ]
+                "value": "Ausrüstung"
               }
             },
             {
               "id": "Leaderboards",
               "name": {
-                "value": "Ranglisten",
-                "synonyms": [
-                  "leaderboards"
-                ]
+                "value": "Ranglisten"
               }
             },
             {
@@ -79,45 +69,32 @@
               "name": {
                 "value": "Partnerschnittstelle",
                 "synonyms": [
-                  "push API",
-                  "third parties"
+                  "Partnerschnittstellen"
                 ]
               }
             },
             {
               "id": "Challenges",
               "name": {
-                "value": "Wettbewerbe",
-                "synonyms": [
-                  "challenges"
-                ]
+                "value": "Wettbewerbe"
               }
             },
             {
               "id": "Connections",
               "name": {
-                "value": "Verbindungen",
-                "synonyms": [
-                  "connections"
-                ]
+                "value": "Verbindungen"
               }
             },
             {
               "id": "Courses",
               "name": {
-                "value": "Strecken",
-                "synonyms": [
-                  "courses"
-                ]
+                "value": "Strecken"
               }
             },
             {
               "id": "DailySummary",
               "name": {
-                "value": "Tagesübersicht",
-                "synonyms": [
-                  "daily summary"
-                ]
+                "value": "Tagesübersicht"
               }
             },
             {
@@ -125,19 +102,14 @@
               "name": {
                 "value": "Geräteregistrierung",
                 "synonyms": [
-                  "Registrierung von Geräten",
-                  "device registration"
+                  "Registrierung von Geräten"
                 ]
               }
             },
             {
               "id": "ModernDashboard",
               "name": {
-                "value": "Instrumententafel",
-                "synonyms": [
-                  "dashboard",
-                  "modern dashboard"
-                ]
+                "value": "Instrumententafel"
               }
             },
             {
@@ -149,29 +121,19 @@
             {
               "id": "Reports",
               "name": {
-                "value": "Berichte",
-                "synonyms": [
-                  "reports"
-                ]
+                "value": "Berichte"
               }
             },
             {
               "id": "SegmentMatching",
               "name": {
-                "value": "Segmentabgleich",
-                "synonyms": [
-                  "segment matching"
-                ]
+                "value": "Segmentabgleich"
               }
             },
             {
               "id": "SleepSync",
               "name": {
-                "value": "Schlaf",
-                "synonyms": [
-                  "sleep sync",
-                  "sleep synchronization"
-                ]
+                "value": "Schlaf"
               }
             },
             {
@@ -179,9 +141,7 @@
               "name": {
                 "value": "Schritte",
                 "synonyms": [
-                  "Schritten",
-                  "step sync",
-                  "step synchronization"
+                  "Schritten"
                 ]
               }
             },
@@ -196,8 +156,7 @@
               "name": {
                 "value": "Trainingseinheiten",
                 "synonyms": [
-                  "Trainings",
-                  "workouts"
+                  "Trainings"
                 ]
               }
             }

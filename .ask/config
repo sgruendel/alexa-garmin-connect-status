@@ -5,26 +5,26 @@
       "was_cloned": false,
       "resources": {
         "manifest": {
-          "eTag": "c3260f2d1e4644b1d378827df077b0bd"
+          "eTag": "17e5ed780ecd3dd5d6b1e3061b430e7e"
         },
         "interactionModel": {
           "de-DE": {
-            "eTag": "fe95464ed61a8508a8f99dd42d5f9c1f"
+            "eTag": "62ccf66704266fe8a75136e5dbd120dc"
           },
           "en-US": {
-            "eTag": "0dda282b516e7f19f8d43eb71717bbda"
+            "eTag": "2323b31735ef436e14fb07dbd584bd01"
           },
           "en-CA": {
-            "eTag": "0dda282b516e7f19f8d43eb71717bbda"
+            "eTag": "2323b31735ef436e14fb07dbd584bd01"
           },
           "en-IN": {
-            "eTag": "3f9594db1662a9d27cb0fb53d7fbc177"
+            "eTag": "25b70ff89896f60c6c07a4f850c4c81c"
           },
           "en-AU": {
-            "eTag": "3f9594db1662a9d27cb0fb53d7fbc177"
+            "eTag": "25b70ff89896f60c6c07a4f850c4c81c"
           },
           "en-GB": {
-            "eTag": "3f9594db1662a9d27cb0fb53d7fbc177"
+            "eTag": "25b70ff89896f60c6c07a4f850c4c81c"
           }
         },
         "lambda": [
