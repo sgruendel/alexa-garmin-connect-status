@@ -12,15 +12,15 @@
             }
           ],
           "samples": [
-            "for status",
-            "for current status",
-            "for the status",
-            "for the current status",
-            "for {item}",
-            "for status of {item}",
-            "for current status of {item}",
-            "for the status of {item}",
-            "for the current status of {item}"
+            "status",
+            "current status",
+            "the status",
+            "the current status",
+            "{item}",
+            "status of {item}",
+            "current status of {item}",
+            "the status of {item}",
+            "the current status of {item}"
           ]
         },
         {
