@@ -1,7 +1,7 @@
 'use strict';
 
 const Alexa = require('ask-sdk-core');
-const i18n = require('i18next');
+const i18next = require('i18next');
 const sprintf = require('i18next-sprintf-postprocessor');
 const dashbot = process.env.DASHBOT_API_KEY ? require('dashbot')(process.env.DASHBOT_API_KEY).alexa : undefined;
 const winston = require('winston');
@@ -161,6 +161,23 @@ const HelpIntentHandler = {
     },
 };
 
+const FallbackIntentHandler = {
+    canHandle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        return request.type === 'IntentRequest' && request.intent.name === 'AMAZON.FallbackIntent';
+    },
+    handle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        logger.debug('request', request);
+
+        const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+        const speechOutput = requestAttributes.t('NOT_UNDERSTOOD_MESSAGE');
+        return handlerInput.responseBuilder
+            .speak(speechOutput)
+            .reprompt(speechOutput)
+            .getResponse();
+    },
+};
 const CancelAndStopIntentHandler = {
     canHandle(handlerInput) {
         const { request } = handlerInput.requestEnvelope;
@@ -215,7 +232,7 @@ const ErrorHandler = {
 
 const LocalizationInterceptor = {
     process(handlerInput) {
-        const localizationClient = i18n.use(sprintf).init({
+        i18next.use(sprintf).init({
             lng: handlerInput.requestEnvelope.request.locale,
             overloadTranslationOptionHandler: sprintf.overloadTranslationOptionHandler,
             resources: languageStrings,
@@ -224,7 +241,7 @@ const LocalizationInterceptor = {
 
         const attributes = handlerInput.attributesManager.getRequestAttributes();
         attributes.t = (...args) => {
-            return localizationClient.t(...args);
+            return i18next.t(...args);
         };
     },
 };
@@ -233,6 +250,7 @@ exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         GarminConnectStatusIntentHandler,
         HelpIntentHandler,
+        FallbackIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler)
     .addRequestInterceptors(LocalizationInterceptor)

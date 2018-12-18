@@ -37,6 +37,17 @@ describe('Garmin Connect Status Skill', () => {
         ]);
     });
 
+    describe('FallbackIntent', () => {
+        alexaTest.test([
+            {
+                request: alexaTest.getIntentRequest('AMAZON.FallbackIntent'),
+                says: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
+                reprompts: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
+                shouldEndSession: false,
+            },
+        ]);
+    });
+
     describe('CancelIntent', () => {
         alexaTest.test([
             {

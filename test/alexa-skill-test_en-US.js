@@ -37,6 +37,17 @@ describe('Garmin Connect Status Skill', () => {
         ]);
     });
 
+    describe('FallbackIntent', () => {
+        alexaTest.test([
+            {
+                request: alexaTest.getIntentRequest('AMAZON.FallbackIntent'),
+                says: "Sorry, I can't understand the command. Please say again?",
+                reprompts: "Sorry, I can't understand the command. Please say again?",
+                shouldEndSession: false,
+            },
+        ]);
+    });
+
     describe('CancelIntent', () => {
         alexaTest.test([
             {
