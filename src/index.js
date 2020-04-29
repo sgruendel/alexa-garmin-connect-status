@@ -177,6 +177,7 @@ const FallbackIntentHandler = {
             .getResponse();
     },
 };
+
 const CancelAndStopIntentHandler = {
     canHandle(handlerInput) {
         const { request } = handlerInput.requestEnvelope;
