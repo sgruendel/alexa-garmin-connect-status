@@ -13,7 +13,7 @@ alexaTest.initialize(
     'amzn1.ask.account.VOID');
 alexaTest.setLocale('de-DE');
 
-describe('Garmin Connect Status Skill', () => {
+describe('Garmin Connect Status Skill (de-DE)', () => {
 
     describe('ErrorHandler', () => {
         alexaTest.test([
