@@ -29,19 +29,19 @@
   },
   "homepage": "https://github.com/sgruendel/alexa-garmin-connect-status#readme",
   "dependencies": {
-    "ask-sdk-core": "2.8.0",
-    "ask-sdk-model": "1.28.0",
+    "ask-sdk-core": "2.9.0",
+    "ask-sdk-model": "1.29.0",
     "cheerio": "1.0.0-rc.3",
-    "i18next": "19.6.0",
+    "i18next": "19.6.2",
     "i18next-sprintf-postprocessor": "0.2.2",
     "request": "2.88.2",
-    "request-promise-native": "1.0.8",
+    "request-promise-native": "1.0.9",
     "winston": "3.3.3"
   },
   "devDependencies": {
     "alexa-skill-test-framework": "1.2.4",
     "chai": "4.2.0",
-    "eslint": "7.4.0",
+    "eslint": "7.5.0",
     "eslint-config-strongloop": "2.1.0",
     "mocha": "8.0.1",
     "nyc": "15.1.0"
