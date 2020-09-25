@@ -1,12 +1,9 @@
 'use strict';
 
-const request = require('request-promise-native');
+const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 
-const gcRequest = request.defaults({
-    baseUrl: 'http://static.garmin.com',
-    gzip: true,
-});
+const BASE_URL = 'https://static.garmincdn.com/';
 
 function parseServiceDiv(i, div) {
     const $ = cheerio.load(div);
@@ -32,8 +29,6 @@ exports.parseBody = (body) => {
 };
 
 exports.getStatus = async function() {
-    const options = {
-        uri: '/connectstatus/garmin-connect-status-content.html',
-    };
-    return exports.parseBody(await gcRequest(options));
+    const response = await fetch(BASE_URL + 'connectstatus/garmin-connect-status-content.html');
+    return exports.parseBody(await response.text());
 };
