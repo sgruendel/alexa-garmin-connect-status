@@ -16,6 +16,7 @@ const logger = winston.createLogger({
 });
 
 const gcStatus = require('./garmin-connect-status');
+const utils = require('./utils');
 
 const SKILL_ID = 'amzn1.ask.skill.810dc1a2-ca42-4089-8ee1-dc158da9ebdb';
 const ER_SUCCESS_MATCH = 'ER_SUCCESS_MATCH';
@@ -31,9 +32,16 @@ const languageStrings = {
             ITEM_GREEN_MESSAGE: 'Currently, {{value.name}} is green on Garmin Connect.',
             ITEM_YELLOW_MESSAGE: 'Currently, {{value.name}} is yellow on Garmin Connect.',
             ITEM_RED_MESSAGE: 'Currently, {{value.name}} is red on Garmin Connect.',
-            ALL_GREEN_MESSAGE: 'Currently, everything is green on Garmin Connect.',
-            SOME_YELLOW_MESSAGE: 'Currently, some services are yellow on Garmin Connect.',
-            SOME_RED_MESSAGE: 'Currently, some services are red on Garmin Connect.',
+            ALL_GREEN_MESSAGE: 'Currently, all platforms and features are green on Garmin Connect.',
+            ALL_RED_MESSAGE: 'Currently, all platforms and features are red on Garmin Connect.',
+            PLATFORMS_GREEN_FEATURES_YELLOW: 'Currently, all platforms are green and some features are yellow on Garmin Connect.',
+            PLATFORMS_GREEN_FEATURES_RED: 'Currently, all platforms are green and some features are red on Garmin Connect.',
+            PLATFORMS_YELLOW_FEATURES_GREEN: 'Currently, some platforms are yellow and all features are green on Garmin Connect.',
+            PLATFORMS_YELLOW_FEATURES_YELLOW: 'Currently, some platforms and features are yellow on Garmin Connect.',
+            PLATFORMS_YELLOW_FEATURES_RED: 'Currently, some platforms are yellow and some features are red on Garmin Connect.',
+            PLATFORMS_RED_FEATURES_GREEN: 'Currently, some platforms are red and all features are green on Garmin Connect.',
+            PLATFORMS_RED_FEATURES_YELLOW: 'Currently, some platforms are red and some features are yellow on Garmin Connect.',
+            PLATFORMS_RED_FEATURES_RED: 'Currently, some platforms and features are red on Garmin Connect.',
             CANT_GET_STATUS_MESSAGE: "I'm sorry, I can't get the status on Garmin Connect currently.",
         },
     },
@@ -47,9 +55,16 @@ const languageStrings = {
             ITEM_GREEN_MESSAGE: 'Im Moment ist <lang xml:lang="en-US">{{value.name}}</lang> auf grün bei Garmin Connect.',
             ITEM_YELLOW_MESSAGE: 'Im Moment ist <lang xml:lang="en-US">{{value.name}}</lang> auf gelb bei Garmin Connect.',
             ITEM_RED_MESSAGE: 'Im Moment ist <lang xml:lang="en-US">{{value.name}}</lang> auf rot bei Garmin Connect.',
-            ALL_GREEN_MESSAGE: 'Im Moment ist alles auf grün bei Garmin Connect.',
-            SOME_YELLOW_MESSAGE: 'Im Moment sind einige Schnittstellen auf gelb bei Garmin Connect.',
-            SOME_RED_MESSAGE: 'Im Moment sind einige Schnittstellen auf rot bei Garmin Connect.',
+            ALL_GREEN_MESSAGE: 'Im Moment sind alle Plattformen und Features auf grün bei Garmin Connect.',
+            ALL_RED_MESSAGE: 'Im Moment sind alle Plattformen und Features auf rot bei Garmin Connect.',
+            PLATFORMS_GREEN_FEATURES_YELLOW: 'Im Moment sind alle Plattformen auf grün und einige Features auf gelb bei Garmin Connect.',
+            PLATFORMS_GREEN_FEATURES_RED: 'Im Moment sind alle Plattformen auf grün und einige Features auf rot bei Garmin Connect.',
+            PLATFORMS_YELLOW_FEATURES_GREEN: 'Im Moment sind einige Plattformen auf gelb und alle Features auf grün bei Garmin Connect.',
+            PLATFORMS_YELLOW_FEATURES_YELLOW: 'Im Moment sind einige Plattformen und Features auf geld bei Garmin Connect.',
+            PLATFORMS_YELLOW_FEATURES_RED: 'Im Moment sind einige Plattformen auf gelb und einige Features auf rot bei Garmin Connect.',
+            PLATFORMS_RED_FEATURES_GREEN: 'Im Moment sind einige Plattformen auf rot und alle Features auf grün bei Garmin Connect.',
+            PLATFORMS_RED_FEATURES_YELLOW: 'Im Moment sind einige Plattformen auf rot und einige Features auf gelb bei Garmin Connect.',
+            PLATFORMS_RED_FEATURES_RED: 'Im Moment sind einige Plattformen und Features auf rot bei Garmin Connect.',
             CANT_GET_STATUS_MESSAGE: 'Es tut mir leid, ich kann den Status von Garmin Connect gerade nicht abfragen.',
         },
     },
@@ -67,7 +82,7 @@ const GarminConnectStatusIntentHandler = {
 
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
         const slots = request.intent && request.intent.slots;
-        var value;
+        let value;
         if (slots) {
             logger.debug('item slot', slots.item);
 
@@ -93,11 +108,11 @@ const GarminConnectStatusIntentHandler = {
             }
         }
 
-        var response;
+        let response;
         await gcStatus.getStatus()
             .then((status) => {
                 logger.debug('garmin connect status', status);
-                var speechOutput;
+                let speechOutput;
 
                 if (value) {
                     const greenItem = status.green.find((i) => { return i.item === value.id; });
@@ -113,18 +128,13 @@ const GarminConnectStatusIntentHandler = {
                 }
 
                 if (!speechOutput) {
-                    if (status.yellow.length === 0 && status.red.length === 0) {
-                        speechOutput = requestAttributes.t('ALL_GREEN_MESSAGE');
-                    } else if (status.red.length > 0) {
-                        speechOutput = requestAttributes.t('SOME_RED_MESSAGE');
-                    } else if (status.yellow.length > 0) {
-                        speechOutput = requestAttributes.t('SOME_YELLOW_MESSAGE');
-                    }
+                    const key = utils.getStatusKey(status);
+                    speechOutput = !key || requestAttributes.t(key);
                 }
 
                 if (!speechOutput) {
                     // should never happen
-                    logger.error('we should never be here: ' + status.green.length + '/' + status.yellow.length + '/' + status.red.length);
+                    logger.error('we should never be here:', status);
                     speechOutput = requestAttributes.t('CANT_GET_STATUS_MESSAGE');
                 }
 

@@ -81,7 +81,7 @@ describe('Garmin Connect Status Skill (en-US)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getLaunchRequest(),
-                saysLike: 'Currently, everything is green on Garmin Connect.',
+                saysLike: 'Currently, all platforms and features are green on Garmin Connect.',
                 repromptsNothing: true, shouldEndSession: true,
             },
         ]);
@@ -91,9 +91,10 @@ describe('Garmin Connect Status Skill (en-US)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: null }),
-                saysLike: 'Currently, everything is green on Garmin Connect.',
+                saysLike: 'Currently, all platforms and features are green on Garmin Connect.',
                 repromptsNothing: true, shouldEndSession: true,
             },
+            /*
             {
                 request: alexaTest.addEntityResolutionToRequest(
                     alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'activity details' }),
@@ -241,6 +242,7 @@ describe('Garmin Connect Status Skill (en-US)', () => {
                 saysLike: 'Currently, workouts is green on Garmin Connect.',
                 repromptsNothing: true, shouldEndSession: true,
             },
+            */
         ]);
     });
 });
