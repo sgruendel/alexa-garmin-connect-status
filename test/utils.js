@@ -11,7 +11,64 @@ const FEATURES_YELLOW = 'FEATURES_YELLOW_MESSAGE';
 const FEATURES_RED = 'FEATURES_RED_MESSAGE';
 
 describe('utils', () => {
+
     describe('#getStatusKey()', () => {
+
+        it('should work for all green', () => {
+            const status = {
+                green: ['all'], yellow: [], red: [],
+            };
+            const result = utils.getStatusKey(status);
+            expect(result).to.equal('ALL_GREEN_MESSAGE');
+        });
+
+        it('should work for all red', () => {
+            const status = {
+                green: [], yellow: [], red: ['all'],
+            };
+            const result = utils.getStatusKey(status);
+            expect(result).to.equal('ALL_RED_MESSAGE');
+        });
+
+        it('should work for all yellow', () => {
+            const status = {
+                green: [], yellow: ['all'], red: [],
+            };
+            const result = utils.getStatusKey(status);
+            // don't have an all yellow message, no realistic use case
+            expect(result).to.equal('SOME_YELLOW_MESSAGE');
+        });
+
+        // one yellow / red
+
+        it('should work for one yellow', () => {
+            const status = {
+                green: ['some'], yellow: ['one'], red: [],
+            };
+            const result = utils.getStatusKey(status);
+            expect(result).to.equal('SOME_YELLOW_MESSAGE');
+        });
+
+        it('should work for one red', () => {
+            const status = {
+                green: ['some'], yellow: [], red: ['one'],
+            };
+            const result = utils.getStatusKey(status);
+            expect(result).to.equal('SOME_RED_MESSAGE');
+        });
+
+        // impossible fallback case
+
+        it('should work for impossible combination', () => {
+            const status = {
+                green: [], yellow: [], red: [],
+            };
+            const result = utils.getStatusKey(status);
+            expect(result).to.be.undefined;
+        });
+    });
+
+    describe('#getPlatformsFeaturesStatusKey()', () => {
 
         it('should work for all green', () => {
             const status = {
@@ -22,8 +79,8 @@ describe('utils', () => {
                     green: ['all'], yellow: [], red: [],
                 },
             };
-            const result = utils.getStatusKey(status);
-            expect(result).to.equal('ALL_GREEN_MESSAGE');
+            const result = utils.getPlatformsFeaturesStatusKey(status);
+            expect(result).to.equal('ALL_GREEN_PLATFORMS_FEATURES_MESSAGE');
         });
 
         it('should work for all red', () => {
@@ -35,8 +92,8 @@ describe('utils', () => {
                     green: [], yellow: [], red: ['all'],
                 },
             };
-            const result = utils.getStatusKey(status);
-            expect(result).to.equal('ALL_RED_MESSAGE');
+            const result = utils.getPlatformsFeaturesStatusKey(status);
+            expect(result).to.equal('ALL_RED_PLATFORMS_FEATURES_MESSAGE');
         });
 
         it('should work for all yellow', () => {
@@ -48,7 +105,7 @@ describe('utils', () => {
                     green: [], yellow: ['all'], red: [],
                 },
             };
-            const result = utils.getStatusKey(status);
+            const result = utils.getPlatformsFeaturesStatusKey(status);
             // don't have an all yellow message, no realistic use case
             expect(result).to.equal(PLATFORMS_YELLOW + FEATURES_YELLOW);
         });
@@ -64,7 +121,7 @@ describe('utils', () => {
                     green: ['some'], yellow: ['one'], red: [],
                 },
             };
-            const result = utils.getStatusKey(status);
+            const result = utils.getPlatformsFeaturesStatusKey(status);
             expect(result).to.equal(PLATFORMS_GREEN + FEATURES_YELLOW);
         });
 
@@ -77,7 +134,7 @@ describe('utils', () => {
                     green: ['some'], yellow: [], red: ['one'],
                 },
             };
-            const result = utils.getStatusKey(status);
+            const result = utils.getPlatformsFeaturesStatusKey(status);
             expect(result).to.equal(PLATFORMS_GREEN + FEATURES_RED);
         });
 
@@ -90,7 +147,7 @@ describe('utils', () => {
                     green: ['some'], yellow: ['one'], red: [],
                 },
             };
-            const result = utils.getStatusKey(status);
+            const result = utils.getPlatformsFeaturesStatusKey(status);
             expect(result).to.equal(PLATFORMS_YELLOW + FEATURES_YELLOW);
         });
 
@@ -103,7 +160,7 @@ describe('utils', () => {
                     green: ['some'], yellow: [], red: ['one'],
                 },
             };
-            const result = utils.getStatusKey(status);
+            const result = utils.getPlatformsFeaturesStatusKey(status);
             expect(result).to.equal(PLATFORMS_YELLOW + FEATURES_RED);
         });
 
@@ -116,7 +173,7 @@ describe('utils', () => {
                     green: ['some'], yellow: ['one'], red: [],
                 },
             };
-            const result = utils.getStatusKey(status);
+            const result = utils.getPlatformsFeaturesStatusKey(status);
             expect(result).to.equal(PLATFORMS_RED + FEATURES_YELLOW);
         });
 
@@ -129,7 +186,7 @@ describe('utils', () => {
                     green: ['some'], yellow: [], red: ['one'],
                 },
             };
-            const result = utils.getStatusKey(status);
+            const result = utils.getPlatformsFeaturesStatusKey(status);
             expect(result).to.equal(PLATFORMS_RED + FEATURES_RED);
         });
 
@@ -144,7 +201,7 @@ describe('utils', () => {
                     green: ['all'], yellow: [], red: [],
                 },
             };
-            const result = utils.getStatusKey(status);
+            const result = utils.getPlatformsFeaturesStatusKey(status);
             expect(result).to.equal(PLATFORMS_YELLOW + FEATURES_GREEN);
         });
 
@@ -157,7 +214,7 @@ describe('utils', () => {
                     green: ['all'], yellow: [], red: [],
                 },
             };
-            const result = utils.getStatusKey(status);
+            const result = utils.getPlatformsFeaturesStatusKey(status);
             expect(result).to.equal(PLATFORMS_RED + FEATURES_GREEN);
         });
 
@@ -170,7 +227,7 @@ describe('utils', () => {
                     green: ['some'], yellow: ['some'], red: [],
                 },
             };
-            const result = utils.getStatusKey(status);
+            const result = utils.getPlatformsFeaturesStatusKey(status);
             expect(result).to.equal(PLATFORMS_YELLOW + FEATURES_YELLOW);
         });
 
@@ -183,7 +240,7 @@ describe('utils', () => {
                     green: ['some'], yellow: ['some'], red: [],
                 },
             };
-            const result = utils.getStatusKey(status);
+            const result = utils.getPlatformsFeaturesStatusKey(status);
             expect(result).to.equal(PLATFORMS_RED + FEATURES_YELLOW);
         });
 
@@ -196,7 +253,7 @@ describe('utils', () => {
                     green: ['some'], yellow: ['some'], red: ['some'],
                 },
             };
-            const result = utils.getStatusKey(status);
+            const result = utils.getPlatformsFeaturesStatusKey(status);
             expect(result).to.equal(PLATFORMS_YELLOW + FEATURES_RED);
         });
 
@@ -209,7 +266,7 @@ describe('utils', () => {
                     green: ['some'], yellow: ['some'], red: ['some'],
                 },
             };
-            const result = utils.getStatusKey(status);
+            const result = utils.getPlatformsFeaturesStatusKey(status);
             expect(result).to.equal(PLATFORMS_RED + FEATURES_RED);
         });
 
@@ -224,7 +281,7 @@ describe('utils', () => {
                     green: [], yellow: [], red: [],
                 },
             };
-            const result = utils.getStatusKey(status);
+            const result = utils.getPlatformsFeaturesStatusKey(status);
             expect(result).to.be.undefined;
         });
     });

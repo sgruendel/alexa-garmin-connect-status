@@ -25,46 +25,54 @@ const ER_SUCCESS_NO_MATCH = 'ER_SUCCESS_NO_MATCH';
 const languageStrings = {
     en: {
         translation: {
-            HELP_MESSAGE: 'I can check the current status of Garmin Connect for you, or of specific components, e.g. Steps, Challenges or Leaderboards. Which component should I check?',
-            HELP_REPROMPT: 'Which component on Garmin Connect should I check, e.g. Steps, Challenges or Leaderboards?',
+            HELP_MESSAGE: 'I can check the current status of Garmin Connect for you, or of specific components platforms or features. Which component should I check?',
+            HELP_REPROMPT: 'Which component on Garmin Connect should I check, platforms or features?',
             STOP_MESSAGE: 'Goodbye!',
             NOT_UNDERSTOOD_MESSAGE: 'Sorry, I can\'t understand the command. Please say again?',
             ITEM_GREEN_MESSAGE: 'Currently, {{value.name}} is green on Garmin Connect.',
             ITEM_YELLOW_MESSAGE: 'Currently, {{value.name}} is yellow on Garmin Connect.',
             ITEM_RED_MESSAGE: 'Currently, {{value.name}} is red on Garmin Connect.',
-            ALL_GREEN_MESSAGE: 'Currently, all platforms and features are green on Garmin Connect.',
-            ALL_RED_MESSAGE: 'Currently, all platforms and features are red on Garmin Connect.',
-            PLATFORMS_GREEN_FEATURES_YELLOW: 'Currently, all platforms are green and some features are yellow on Garmin Connect.',
-            PLATFORMS_GREEN_FEATURES_RED: 'Currently, all platforms are green and some features are red on Garmin Connect.',
-            PLATFORMS_YELLOW_FEATURES_GREEN: 'Currently, some platforms are yellow and all features are green on Garmin Connect.',
-            PLATFORMS_YELLOW_FEATURES_YELLOW: 'Currently, some platforms and features are yellow on Garmin Connect.',
-            PLATFORMS_YELLOW_FEATURES_RED: 'Currently, some platforms are yellow and some features are red on Garmin Connect.',
-            PLATFORMS_RED_FEATURES_GREEN: 'Currently, some platforms are red and all features are green on Garmin Connect.',
-            PLATFORMS_RED_FEATURES_YELLOW: 'Currently, some platforms are red and some features are yellow on Garmin Connect.',
-            PLATFORMS_RED_FEATURES_RED: 'Currently, some platforms and features are red on Garmin Connect.',
+            ALL_GREEN_MESSAGE: 'Currently, all {{value.name}} are green on Garmin Connect.',
+            ALL_RED_MESSAGE: 'Currently, all {{value.name}} are red on Garmin Connect.',
+            SOME_YELLOW_MESSAGE: 'Currently, some {{value.name}} are yellow on Garmin Connect.',
+            SOME_RED_MESSAGE: 'Currently, some {{value.name}} are red on Garmin Connect.',
+            ALL_GREEN_PLATFORMS_FEATURES_MESSAGE: 'Currently, all platforms and features are green on Garmin Connect.',
+            ALL_RED_PLATFORMS_FEATURES_MESSAGE: 'Currently, all platforms and features are red on Garmin Connect.',
+            PLATFORMS_GREEN_FEATURES_YELLOW_MESSAGE: 'Currently, all platforms are green and some features are yellow on Garmin Connect.',
+            PLATFORMS_GREEN_FEATURES_RED_MESSAGE: 'Currently, all platforms are green and some features are red on Garmin Connect.',
+            PLATFORMS_YELLOW_FEATURES_GREEN_MESSAGE: 'Currently, some platforms are yellow and all features are green on Garmin Connect.',
+            PLATFORMS_YELLOW_FEATURES_YELLOW_MESSAGE: 'Currently, some platforms and features are yellow on Garmin Connect.',
+            PLATFORMS_YELLOW_FEATURES_RED_MESSAGE: 'Currently, some platforms are yellow and some features are red on Garmin Connect.',
+            PLATFORMS_RED_FEATURES_GREEN_MESSAGE: 'Currently, some platforms are red and all features are green on Garmin Connect.',
+            PLATFORMS_RED_FEATURES_YELLOW_MESSAGE: 'Currently, some platforms are red and some features are yellow on Garmin Connect.',
+            PLATFORMS_RED_FEATURES_RED_MESSAGE: 'Currently, some platforms and features are red on Garmin Connect.',
             CANT_GET_STATUS_MESSAGE: "I'm sorry, I can't get the status on Garmin Connect currently.",
         },
     },
 
     de: {
         translation: {
-            HELP_MESSAGE: 'Ich kann den aktuellen Status von Garmin Connect für dich ermitteln oder den Status einzelner Komponenten darin, z.B. Schritte, Challenges oder Leaderboards. Welche Komponente soll ich abfragen?',
-            HELP_REPROMPT: 'Welche Komponente von Garmin Connect soll ich abfragen, also z.B. Schritte, Challenges oder Leaderboards?',
+            HELP_MESSAGE: 'Ich kann den aktuellen Status von Garmin Connect für dich ermitteln oder den Status der einzelnen Komponenten Plattformen oder Features. Welche Komponente soll ich abfragen?',
+            HELP_REPROMPT: 'Welche Komponente von Garmin Connect soll ich abfragen, Plattformen oder Features?',
             STOP_MESSAGE: '<say-as interpret-as="interjection">bis dann</say-as>.',
             NOT_UNDERSTOOD_MESSAGE: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
             ITEM_GREEN_MESSAGE: 'Im Moment ist <lang xml:lang="en-US">{{value.name}}</lang> auf grün bei Garmin Connect.',
             ITEM_YELLOW_MESSAGE: 'Im Moment ist <lang xml:lang="en-US">{{value.name}}</lang> auf gelb bei Garmin Connect.',
             ITEM_RED_MESSAGE: 'Im Moment ist <lang xml:lang="en-US">{{value.name}}</lang> auf rot bei Garmin Connect.',
-            ALL_GREEN_MESSAGE: 'Im Moment sind alle Plattformen und Features auf grün bei Garmin Connect.',
-            ALL_RED_MESSAGE: 'Im Moment sind alle Plattformen und Features auf rot bei Garmin Connect.',
-            PLATFORMS_GREEN_FEATURES_YELLOW: 'Im Moment sind alle Plattformen auf grün und einige Features auf gelb bei Garmin Connect.',
-            PLATFORMS_GREEN_FEATURES_RED: 'Im Moment sind alle Plattformen auf grün und einige Features auf rot bei Garmin Connect.',
-            PLATFORMS_YELLOW_FEATURES_GREEN: 'Im Moment sind einige Plattformen auf gelb und alle Features auf grün bei Garmin Connect.',
-            PLATFORMS_YELLOW_FEATURES_YELLOW: 'Im Moment sind einige Plattformen und Features auf geld bei Garmin Connect.',
-            PLATFORMS_YELLOW_FEATURES_RED: 'Im Moment sind einige Plattformen auf gelb und einige Features auf rot bei Garmin Connect.',
-            PLATFORMS_RED_FEATURES_GREEN: 'Im Moment sind einige Plattformen auf rot und alle Features auf grün bei Garmin Connect.',
-            PLATFORMS_RED_FEATURES_YELLOW: 'Im Moment sind einige Plattformen auf rot und einige Features auf gelb bei Garmin Connect.',
-            PLATFORMS_RED_FEATURES_RED: 'Im Moment sind einige Plattformen und Features auf rot bei Garmin Connect.',
+            ALL_GREEN_MESSAGE: 'Im Moment sind alle {{value.name}} auf grün bei Garmin Connect.',
+            ALL_RED_MESSAGE: 'Im Moment sind alle {{value.name}} auf rot bei Garmin Connect.',
+            SOME_YELLOW_MESSAGE: 'Im Moment sind einige {{value.name}} auf gelb bei Garmin Connect.',
+            SOME_RED_MESSAGE: 'Im Moment sind einige {{value.name}} auf rot bei Garmin Connect.',
+            ALL_GREEN_PLATFORMS_FEATURES_MESSAGE: 'Im Moment sind alle Plattformen und Features auf grün bei Garmin Connect.',
+            ALL_RED_PLATFORMS_FEATURES_MESSAGE: 'Im Moment sind alle Plattformen und Features auf rot bei Garmin Connect.',
+            PLATFORMS_GREEN_FEATURES_YELLOW_MESSAGE: 'Im Moment sind alle Plattformen auf grün und einige Features auf gelb bei Garmin Connect.',
+            PLATFORMS_GREEN_FEATURES_RED_MESSAGE: 'Im Moment sind alle Plattformen auf grün und einige Features auf rot bei Garmin Connect.',
+            PLATFORMS_YELLOW_FEATURES_GREEN_MESSAGE: 'Im Moment sind einige Plattformen auf gelb und alle Features auf grün bei Garmin Connect.',
+            PLATFORMS_YELLOW_FEATURES_YELLOW_MESSAGE: 'Im Moment sind einige Plattformen und Features auf geld bei Garmin Connect.',
+            PLATFORMS_YELLOW_FEATURES_RED_MESSAGE: 'Im Moment sind einige Plattformen auf gelb und einige Features auf rot bei Garmin Connect.',
+            PLATFORMS_RED_FEATURES_GREEN_MESSAGE: 'Im Moment sind einige Plattformen auf rot und alle Features auf grün bei Garmin Connect.',
+            PLATFORMS_RED_FEATURES_YELLOW_MESSAGE: 'Im Moment sind einige Plattformen auf rot und einige Features auf gelb bei Garmin Connect.',
+            PLATFORMS_RED_FEATURES_RED_MESSAGE: 'Im Moment sind einige Plattformen und Features auf rot bei Garmin Connect.',
             CANT_GET_STATUS_MESSAGE: 'Es tut mir leid, ich kann den Status von Garmin Connect gerade nicht abfragen.',
         },
     },
@@ -114,21 +122,11 @@ const GarminConnectStatusIntentHandler = {
                 logger.debug('garmin connect status', status);
                 let speechOutput;
 
-                if (value) {
-                    const greenItem = status.green.find((i) => { return i.item === value.id; });
-                    const yellowItem = status.green.find((i) => { return i.item === value.id; });
-                    const redItem = status.green.find((i) => { return i.item === value.id; });
-                    if (greenItem) {
-                        speechOutput = requestAttributes.t('ITEM_GREEN_MESSAGE', { value });
-                    } else if (yellowItem) {
-                        speechOutput = requestAttributes.t('ITEM_YELLOW_MESSAGE', { value });
-                    } else if (redItem) {
-                        speechOutput = requestAttributes.t('ITEM_RED_MESSAGE', { value });
-                    }
-                }
-
-                if (!speechOutput) {
-                    const key = utils.getStatusKey(status);
+                if (value && status[value.id]) {
+                    const key = utils.getStatusKey(status[value.id]);
+                    speechOutput = !key || requestAttributes.t(key, { value });
+                } else {
+                    const key = utils.getPlatformsFeaturesStatusKey(status);
                     speechOutput = !key || requestAttributes.t(key);
                 }
 

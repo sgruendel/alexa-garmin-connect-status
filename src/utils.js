@@ -10,6 +10,22 @@ const FEATURES_RED = 'FEATURES_RED_MESSAGE';
 var exports = module.exports = {};
 
 exports.getStatusKey = (status) => {
+    const noOfGreen = status.green.length;
+    const noOfYellow = status.yellow.length;
+    const noOfRed = status.red.length;
+
+    if (noOfGreen > 0 && noOfYellow === 0 && noOfRed === 0) {
+        return 'ALL_GREEN_MESSAGE';
+    } else if (noOfGreen === 0 && noOfYellow === 0 && noOfRed > 0) {
+        return 'ALL_RED_MESSAGE';
+    } else if (noOfRed > 0) {
+        return 'SOME_RED_MESSAGE';
+    } else if (noOfYellow > 0) {
+        return 'SOME_YELLOW_MESSAGE';
+    }
+};
+
+exports.getPlatformsFeaturesStatusKey = (status) => {
     const noOfGreenPlatforms = status.platforms.green.length;
     const noOfYellowPlatforms = status.platforms.yellow.length;
     const noOfRedPlatforms = status.platforms.red.length;
@@ -20,12 +36,12 @@ exports.getStatusKey = (status) => {
     if (noOfGreenPlatforms > 0 && noOfYellowPlatforms === 0 && noOfRedPlatforms === 0
         && noOfGreenFeatures > 0 && noOfYellowFeatures === 0 && noOfRedFeatures === 0) {
 
-        return 'ALL_GREEN_MESSAGE';
+        return 'ALL_GREEN_PLATFORMS_FEATURES_MESSAGE';
 
     } else if (noOfGreenPlatforms === 0 && noOfYellowPlatforms === 0 && noOfRedPlatforms > 0
         && noOfGreenFeatures === 0 && noOfYellowFeatures === 0 && noOfRedPlatforms > 0) {
 
-        return 'ALL_RED_MESSAGE';
+        return 'ALL_RED_PLATFORMS_FEATURES_MESSAGE';
 
         // platforms green, red, yellow
 

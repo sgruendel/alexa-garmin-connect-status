@@ -1,13 +1,31 @@
 {
   "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:garminConnectStatus:5",
+          "sourceDir": "./src"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    },
     "publishingInformation": {
       "locales": {
         "de-DE": {
           "summary": "Garmin Connect Status Skill (inoffiziell)",
           "examplePhrases": [
             "Alexa, öffne GC Status",
-            "Alexa, frage GC Status nach Aktivität hochladen",
-            "Alexa, frage GC Status nach dem Status von Schritten"
+            "Alexa, frage GC Status nach Plattformen",
+            "Alexa, frage GC Status nach Features"
           ],
           "keywords": [
             "garmin",
@@ -16,15 +34,16 @@
           ],
           "name": "GC Status",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/b179/b83f0a5a0c2b4a8e9b419f0355159e80/APP_ICON?versionId=.lgLdKfBkqXk5pE5yFWzfBGw30d8VG68&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514870&Signature=dTMEAOB2XWjr8smFQWQZYYjrCsI%3D",
-          "description": "Überprüft den aktuellen Status von Garmin Connect wie gerade angezeigt auf https://connect.garmin.com/status.\n\nAufruf über \"Alexa, öffne GC Status\", oder Abfrage einzelner Statuswerte über die entsprechende Bezeichnung aus Garmin Connect:\n\"Alexa, frage GC Status nach Aktivität hochladen\"\n\"Alexa, frage GC Status nach dem Status von Schritten\"\n\"Alexa, frage GC Status nach dem Status von Strava\"\n\"Alexa, frage GC Status nach dem Status von MyFitnessPal\"\n\nDieser Skill ist ein inoffizielles Fan Projekt.\n\nVerbesserungsvorschläge und Feedback gerne unter https://github.com/sgruendel/alexa-garmin-connect-status/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/aafb/1dd5d2525740465582ad72292a212af0/APP_ICON_LARGE?versionId=ObxRwmk5DbEU0Z.4L34DozgNwwyoUEhC&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=K2lJmwU8nHqPba0%2B%2FvrTHlXMvO0%3D"
+          "description": "Überprüft den aktuellen Status von Garmin Connect wie gerade angezeigt auf https://connect.garmin.com/status.\n\nAufruf über \"Alexa, öffne GC Status\", oder Abfrage einzelner Komponenten:\n\"Alexa, frage GC Status nach Plattformen\"\n\"Alexa, frage GC Status nach Features\"\n\nDieser Skill ist ein inoffizielles Fan Projekt.\n\nVerbesserungsvorschläge und Feedback gerne unter https://github.com/sgruendel/alexa-garmin-connect-status/issues/new.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/aafb/1dd5d2525740465582ad72292a212af0/APP_ICON_LARGE?versionId=ObxRwmk5DbEU0Z.4L34DozgNwwyoUEhC&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=K2lJmwU8nHqPba0%2B%2FvrTHlXMvO0%3D",
+          "updatesDescription": "Angepasst an neue Garmin Connect Statusseite."
         },
         "en-US": {
           "summary": "Garmin Connect Status skill (unofficial)",
           "examplePhrases": [
             "Alexa, open GC Status",
-            "Alexa, ask GC Status for Activity Uploads",
-            "Alexa, ask GC Status for status of steps"
+            "Alexa, ask GC Status for platforms",
+            "Alexa, ask GC Status for features"
           ],
           "keywords": [
             "garmin",
@@ -33,15 +52,16 @@
           ],
           "name": "GC Status",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3399/75ec06b3d80a41819f96efb2455558d2/APP_ICON?versionId=27oLkAVLwYbaYWEqPRqENqzvC8dI8Hkk&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=ULxk2ec%2FbXM4ukZFHdSAOECHXsc%3D",
-          "description": "Check the current Garmin Connect status as reported on https://connect.garmin.com/status.\n\nStart with \"Alexa, open GC Status\", or ask for a specific status by its respective name on the status page or in Garmin Connect:\n\"Alexa, ask GC Status for Activity Uploads\"\n\"Alexa, ask GC Status for status of Step Sync\"\n\"Alexa, ask GC Status for status of steps\"\n\"Alexa, ask GC Status for status of sleep\"\n\"Alexa, ask GC Status for status of Strava\"\n\"Alexa, ask GC Status for status of MyFitnessPal\"\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-garmin-connect-status/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cdb8/67512b5a6b4d44d0bc047dda28c9df35/APP_ICON_LARGE?versionId=P0ShpKCh4P.JZKRMlsuDNF9JUKCuYiW3&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=DClXf0NRYifof5G%2BoWB9a3mgIRw%3D"
+          "description": "Check the current Garmin Connect status as reported on https://connect.garmin.com/status.\n\nStart with \"Alexa, open GC Status\", or ask for a specific component:\n\"Alexa, ask GC Status for platforms\"\n\"Alexa, ask GC Status for features\"\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-garmin-connect-status/issues/new.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cdb8/67512b5a6b4d44d0bc047dda28c9df35/APP_ICON_LARGE?versionId=P0ShpKCh4P.JZKRMlsuDNF9JUKCuYiW3&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=DClXf0NRYifof5G%2BoWB9a3mgIRw%3D",
+          "updatesDescription": "Adapted to new Garmin Connect status page."
         },
         "en-CA": {
           "summary": "Garmin Connect Status skill (unofficial)",
           "examplePhrases": [
             "Alexa, open GC Status",
-            "Alexa, ask GC Status for Activity Uploads",
-            "Alexa, ask GC Status for status of steps"
+            "Alexa, ask GC Status for platforms",
+            "Alexa, ask GC Status for features"
           ],
           "keywords": [
             "garmin",
@@ -50,15 +70,16 @@
           ],
           "name": "GC Status",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3399/75ec06b3d80a41819f96efb2455558d2/APP_ICON?versionId=27oLkAVLwYbaYWEqPRqENqzvC8dI8Hkk&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=ULxk2ec%2FbXM4ukZFHdSAOECHXsc%3D",
-          "description": "Check the current Garmin Connect status as reported on https://connect.garmin.com/status.\n\nStart with \"Alexa, open GC Status\", or ask for a specific status by its respective name on the status page or in Garmin Connect:\n\"Alexa, ask GC Status for Activity Uploads\"\n\"Alexa, ask GC Status for status of Step Sync\"\n\"Alexa, ask GC Status for status of steps\"\n\"Alexa, ask GC Status for status of sleep\"\n\"Alexa, ask GC Status for status of Strava\"\n\"Alexa, ask GC Status for status of MyFitnessPal\"\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-garmin-connect-status/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cdb8/67512b5a6b4d44d0bc047dda28c9df35/APP_ICON_LARGE?versionId=P0ShpKCh4P.JZKRMlsuDNF9JUKCuYiW3&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=DClXf0NRYifof5G%2BoWB9a3mgIRw%3D"
+          "description": "Check the current Garmin Connect status as reported on https://connect.garmin.com/status.\n\nStart with \"Alexa, open GC Status\", or ask for a specific component:\n\"Alexa, ask GC Status for platforms\"\n\"Alexa, ask GC Status for features\"\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-garmin-connect-status/issues/new.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cdb8/67512b5a6b4d44d0bc047dda28c9df35/APP_ICON_LARGE?versionId=P0ShpKCh4P.JZKRMlsuDNF9JUKCuYiW3&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=DClXf0NRYifof5G%2BoWB9a3mgIRw%3D",
+          "updatesDescription": "Adapted to new Garmin Connect status page."
         },
         "en-IN": {
           "summary": "Garmin Connect Status skill (unofficial)",
           "examplePhrases": [
             "Alexa, open GC Status",
-            "Alexa, ask GC Status for Activity Uploads",
-            "Alexa, ask GC Status for status of steps"
+            "Alexa, ask GC Status for platforms",
+            "Alexa, ask GC Status for features"
           ],
           "keywords": [
             "garmin",
@@ -67,15 +88,16 @@
           ],
           "name": "GC Status",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3399/75ec06b3d80a41819f96efb2455558d2/APP_ICON?versionId=27oLkAVLwYbaYWEqPRqENqzvC8dI8Hkk&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=ULxk2ec%2FbXM4ukZFHdSAOECHXsc%3D",
-          "description": "Check the current Garmin Connect status as reported on https://connect.garmin.com/status.\n\nStart with \"Alexa, open GC Status\", or ask for a specific status by its respective name on the status page or in Garmin Connect:\n\"Alexa, ask GC Status for Activity Uploads\"\n\"Alexa, ask GC Status for status of Step Sync\"\n\"Alexa, ask GC Status for status of steps\"\n\"Alexa, ask GC Status for status of sleep\"\n\"Alexa, ask GC Status for status of Strava\"\n\"Alexa, ask GC Status for status of MyFitnessPal\"\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-garmin-connect-status/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cdb8/67512b5a6b4d44d0bc047dda28c9df35/APP_ICON_LARGE?versionId=P0ShpKCh4P.JZKRMlsuDNF9JUKCuYiW3&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=DClXf0NRYifof5G%2BoWB9a3mgIRw%3D"
+          "description": "Check the current Garmin Connect status as reported on https://connect.garmin.com/status.\n\nStart with \"Alexa, open GC Status\", or ask for a specific component:\n\"Alexa, ask GC Status for platforms\"\n\"Alexa, ask GC Status for features\"\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-garmin-connect-status/issues/new.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cdb8/67512b5a6b4d44d0bc047dda28c9df35/APP_ICON_LARGE?versionId=P0ShpKCh4P.JZKRMlsuDNF9JUKCuYiW3&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=DClXf0NRYifof5G%2BoWB9a3mgIRw%3D",
+          "updatesDescription": "Adapted to new Garmin Connect status page."
         },
         "en-AU": {
           "summary": "Garmin Connect Status skill (unofficial)",
           "examplePhrases": [
             "Alexa, open GC Status",
-            "Alexa, ask GC Status for Activity Uploads",
-            "Alexa, ask GC Status for status of steps"
+            "Alexa, ask GC Status for platforms",
+            "Alexa, ask GC Status for features"
           ],
           "keywords": [
             "garmin",
@@ -84,15 +106,16 @@
           ],
           "name": "GC Status",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3399/75ec06b3d80a41819f96efb2455558d2/APP_ICON?versionId=27oLkAVLwYbaYWEqPRqENqzvC8dI8Hkk&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=ULxk2ec%2FbXM4ukZFHdSAOECHXsc%3D",
-          "description": "Check the current Garmin Connect status as reported on https://connect.garmin.com/status.\n\nStart with \"Alexa, open GC Status\", or ask for a specific status by its respective name on the status page or in Garmin Connect:\n\"Alexa, ask GC Status for Activity Uploads\"\n\"Alexa, ask GC Status for status of Step Sync\"\n\"Alexa, ask GC Status for status of steps\"\n\"Alexa, ask GC Status for status of sleep\"\n\"Alexa, ask GC Status for status of Strava\"\n\"Alexa, ask GC Status for status of MyFitnessPal\"\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-garmin-connect-status/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cdb8/67512b5a6b4d44d0bc047dda28c9df35/APP_ICON_LARGE?versionId=P0ShpKCh4P.JZKRMlsuDNF9JUKCuYiW3&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=DClXf0NRYifof5G%2BoWB9a3mgIRw%3D"
+          "description": "Check the current Garmin Connect status as reported on https://connect.garmin.com/status.\n\nStart with \"Alexa, open GC Status\", or ask for a specific component:\n\"Alexa, ask GC Status for platforms\"\n\"Alexa, ask GC Status for features\"\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-garmin-connect-status/issues/new.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cdb8/67512b5a6b4d44d0bc047dda28c9df35/APP_ICON_LARGE?versionId=P0ShpKCh4P.JZKRMlsuDNF9JUKCuYiW3&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=DClXf0NRYifof5G%2BoWB9a3mgIRw%3D",
+          "updatesDescription": "Adapted to new Garmin Connect status page."
         },
         "en-GB": {
           "summary": "Garmin Connect Status skill (unofficial)",
           "examplePhrases": [
             "Alexa, open GC Status",
-            "Alexa, ask GC Status for Activity Uploads",
-            "Alexa, ask GC Status for status of steps"
+            "Alexa, ask GC Status for platforms",
+            "Alexa, ask GC Status for features"
           ],
           "keywords": [
             "garmin",
@@ -101,30 +124,15 @@
           ],
           "name": "GC Status",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/3399/75ec06b3d80a41819f96efb2455558d2/APP_ICON?versionId=27oLkAVLwYbaYWEqPRqENqzvC8dI8Hkk&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=ULxk2ec%2FbXM4ukZFHdSAOECHXsc%3D",
-          "description": "Check the current Garmin Connect status as reported on https://connect.garmin.com/status.\n\nStart with \"Alexa, open GC Status\", or ask for a specific status by its respective name on the status page or in Garmin Connect:\n\"Alexa, ask GC Status for Activity Uploads\"\n\"Alexa, ask GC Status for status of Step Sync\"\n\"Alexa, ask GC Status for status of steps\"\n\"Alexa, ask GC Status for status of sleep\"\n\"Alexa, ask GC Status for status of Strava\"\n\"Alexa, ask GC Status for status of MyFitnessPal\"\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-garmin-connect-status/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cdb8/67512b5a6b4d44d0bc047dda28c9df35/APP_ICON_LARGE?versionId=P0ShpKCh4P.JZKRMlsuDNF9JUKCuYiW3&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=DClXf0NRYifof5G%2BoWB9a3mgIRw%3D"
+          "description": "Check the current Garmin Connect status as reported on https://connect.garmin.com/status.\n\nStart with \"Alexa, open GC Status\", or ask for a specific component:\n\"Alexa, ask GC Status for platforms\"\n\"Alexa, ask GC Status for features\"\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-garmin-connect-status/issues/new.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cdb8/67512b5a6b4d44d0bc047dda28c9df35/APP_ICON_LARGE?versionId=P0ShpKCh4P.JZKRMlsuDNF9JUKCuYiW3&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1541514871&Signature=DClXf0NRYifof5G%2BoWB9a3mgIRw%3D",
+          "updatesDescription": "Adapted to new Garmin Connect status page."
         }
       },
       "isAvailableWorldwide": true,
       "testingInstructions": "Check https://connect.garmin.com/status for current status as reported by this skill.\n\nChanges to previous version (Lambda version 3):\n* add FallbackIntent handling",
       "category": "HEALTH_AND_FITNESS",
       "distributionCountries": []
-    },
-    "apis": {
-      "custom": {
-        "endpoint": {
-          "sourceDir": "./src"
-        },
-        "interfaces": []
-      }
-    },
-    "manifestVersion": "1.0",
-    "privacyAndCompliance": {
-      "allowsPurchases": false,
-      "isExportCompliant": true,
-      "containsAds": false,
-      "isChildDirected": false,
-      "usesPersonalInfo": false
     }
   }
 }

@@ -3,52 +3,45 @@
     "default": {
       "skill_id": "amzn1.ask.skill.810dc1a2-ca42-4089-8ee1-dc158da9ebdb",
       "was_cloned": false,
+      "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "6a19b45d648b177142440298f76c8681"
+          "eTag": "489ad00cbf234daabf0da7d7629208a6"
         },
         "interactionModel": {
           "de-DE": {
-            "eTag": "2e0d9483e78b2e35a1e66ba37de4f761"
+            "eTag": "805ca3a7cd386b0fe65d45623caa0bfa"
           },
           "en-US": {
-            "eTag": "cbbf070af1b5737aa12a6816e02c6423"
+            "eTag": "dcc2e22e31a11fb6e5121b170a0e5ee3"
           },
           "en-CA": {
-            "eTag": "cbbf070af1b5737aa12a6816e02c6423"
+            "eTag": "7fbf7309a79aea40c67ecc11ce69ea86"
           },
           "en-IN": {
-            "eTag": "9bd8de235c7e5da9a66cda750d62b8d3"
+            "eTag": "4a8cbc9dcb3e44564b7db60660b0f220"
           },
           "en-AU": {
-            "eTag": "9bd8de235c7e5da9a66cda750d62b8d3"
+            "eTag": "a23a32aa3d1ebf2a2c5922dc4ca2ffdb"
           },
           "en-GB": {
-            "eTag": "9bd8de235c7e5da9a66cda750d62b8d3"
+            "eTag": "c9d7a3d01a9b878ed26d4b19c6dd8dc1"
           }
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:garminConnectStatus:4",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:garminConnectStatus:5",
             "awsRegion": "eu-west-1",
             "functionName": "garminConnectStatus",
             "alexaUsage": [
               "custom/default"
             ],
-            "revisionId": "52f23c19-5b14-4555-9e12-2e5af1e94219"
+            "revisionId": "52f23c19-5b14-4555-9e12-2e5af1e94219",
+            "codeUri": "src",
+            "handler": "index.handler",
+            "runtime": "nodejs12.x"
           }
         ]
-      },
-      "merge": {
-        "manifest": {
-          "apis": {
-            "custom": {
-              "endpoint": {
-                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:garminConnectStatus:4"
-              }
-            }
-          }
-        }
       }
     }
   }

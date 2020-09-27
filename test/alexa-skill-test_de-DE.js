@@ -30,8 +30,8 @@ describe('Garmin Connect Status Skill (de-DE)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.HelpIntent'),
-                says: 'Ich kann den aktuellen Status von Garmin Connect für dich ermitteln oder den Status einzelner Komponenten darin, z.B. Schritte, Challenges oder Leaderboards. Welche Komponente soll ich abfragen?',
-                reprompts: 'Welche Komponente von Garmin Connect soll ich abfragen, also z.B. Schritte, Challenges oder Leaderboards?',
+                says: 'Ich kann den aktuellen Status von Garmin Connect für dich ermitteln oder den Status der einzelnen Komponenten Plattformen oder Features. Welche Komponente soll ich abfragen?',
+                reprompts: 'Welche Komponente von Garmin Connect soll ich abfragen, Plattformen oder Features?',
                 shouldEndSession: false,
             },
         ]);
@@ -81,7 +81,7 @@ describe('Garmin Connect Status Skill (de-DE)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getLaunchRequest(),
-                saysLike: 'Im Moment sind alle Plattformen und Features auf grün bei Garmin Connect.',
+                says: 'Im Moment sind alle Plattformen und Features auf grün bei Garmin Connect.',
                 repromptsNothing: true, shouldEndSession: true,
             },
         ]);
@@ -91,182 +91,30 @@ describe('Garmin Connect Status Skill (de-DE)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: null }),
+                says: 'Im Moment sind alle Plattformen und Features auf grün bei Garmin Connect.',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+            {
+                request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'plattformen' }),
+                    'item', LIST_OF_ITEMS, 'Plattformen', 'platforms'),
+                says: 'Im Moment sind alle Plattformen auf grün bei Garmin Connect.',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+            {
+                request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'features' }),
+                    'item', LIST_OF_ITEMS, 'Features', 'features'),
+                says: 'Im Moment sind alle Features auf grün bei Garmin Connect.',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+            {
+                request: alexaTest.addEntityResolutionNoMatchToRequest(
+                    alexaTest.getIntentRequest('GarminConnectStatusIntent'),
+                    'item', LIST_OF_ITEMS, 'upload'),
                 saysLike: 'Im Moment sind alle Plattformen und Features auf grün bei Garmin Connect.',
                 repromptsNothing: true, shouldEndSession: true,
             },
-            /*
-            {
-                request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'aktivitäten' }),
-                    [
-                        { slotName: 'item', slotType: LIST_OF_ITEMS, value: 'activity details', id: 'ActivityDetails' },
-                        { slotName: 'item', slotType: LIST_OF_ITEMS, value: 'activity uploads', id: 'ActivityUploads' },
-                    ]),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">activity details</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'aktivität hochladen' }),
-                    'item', LIST_OF_ITEMS, 'activity uploads', 'ActivityUploads'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">activity uploads</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'aktivität importieren' }),
-                    'item', LIST_OF_ITEMS, 'activity uploads', 'ActivityUploads'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">activity uploads</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'ausrüstung' }),
-                    'item', LIST_OF_ITEMS, 'gear tracking', 'GearTracking'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">gear tracking</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'leaderboards' }),
-                    'item', LIST_OF_ITEMS, 'leaderboards', 'Leaderboards'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">leaderboards</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'push API' }),
-                    'item', LIST_OF_ITEMS, 'push API', 'PushAPI(ThirdParties)'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">push API</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'challenges' }),
-                    'item', LIST_OF_ITEMS, 'challenges', 'Challenges'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">challenges</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'verbindungen' }),
-                    'item', LIST_OF_ITEMS, 'connections', 'Connections'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">connections</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'strecken' }),
-                    'item', LIST_OF_ITEMS, 'courses', 'Courses'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">courses</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'tagesübersicht' }),
-                    'item', LIST_OF_ITEMS, 'daily summary', 'DailySummary'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">daily summary</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'geräteregistrierung' }),
-                    'item', LIST_OF_ITEMS, 'device registration', 'DeviceRegistration'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">device registration</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'registrierung von geräten' }),
-                    'item', LIST_OF_ITEMS, 'device registration', 'DeviceRegistration'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">device registration</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'dashboard' }),
-                    'item', LIST_OF_ITEMS, 'dashboard', 'ModernDashboard'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">dashboard</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'modern dashboard' }),
-                    'item', LIST_OF_ITEMS, 'dashboard', 'ModernDashboard'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">dashboard</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'myfitnesspal' }),
-                    'item', LIST_OF_ITEMS, 'MyFitnessPal', 'MyFitnessPal'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">MyFitnessPal</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'berichte' }),
-                    'item', LIST_OF_ITEMS, 'reports', 'Reports'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">reports</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'segment matching' }),
-                    'item', LIST_OF_ITEMS, 'segment matching', 'SegmentMatching'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">segment matching</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'sleep sync' }),
-                    'item', LIST_OF_ITEMS, 'sleep sync', 'SleepSync'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">sleep sync</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'schlaf' }),
-                    'item', LIST_OF_ITEMS, 'sleep sync', 'SleepSync'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">sleep sync</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'step sync' }),
-                    'item', LIST_OF_ITEMS, 'step sync', 'StepSync'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">step sync</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'schritte' }),
-                    'item', LIST_OF_ITEMS, 'step sync', 'StepSync'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">step sync</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'schritten' }),
-                    'item', LIST_OF_ITEMS, 'step sync', 'StepSync'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">step sync</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'strava' }),
-                    'item', LIST_OF_ITEMS, 'Strava', 'Strava'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">Strava</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('GarminConnectStatusIntent', { item: 'workouts' }),
-                    'item', LIST_OF_ITEMS, 'workouts', 'Workouts'),
-                saysLike: 'Im Moment ist <lang xml:lang="en-US">workouts</lang> auf grün bei Garmin Connect.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            */
         ]);
     });
 });

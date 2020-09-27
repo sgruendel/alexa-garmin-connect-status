@@ -19,8 +19,12 @@
             "{item}",
             "status of {item}",
             "current status of {item}",
+            "status of all {item}",
+            "current status of all {item}",
             "the status of {item}",
-            "the current status of {item}"
+            "the current status of {item}",
+            "the status of all {item}",
+            "the current status of all {item}"
           ]
         },
         {
@@ -45,128 +49,15 @@
           "name": "LIST_OF_ITEMS",
           "values": [
             {
-              "id": "ActivityDetails",
+              "id": "platforms",
               "name": {
-                "value": "activity details"
+                "value": "platforms"
               }
             },
             {
-              "id": "ActivityUploads",
+              "id": "features",
               "name": {
-                "value": "activity uploads"
-              }
-            },
-            {
-              "id": "GearTracking",
-              "name": {
-                "value": "gear tracking",
-                "synonyms": [
-                  "gear"
-                ]
-              }
-            },
-            {
-              "id": "Leaderboards",
-              "name": {
-                "value": "leaderboards"
-              }
-            },
-            {
-              "id": "PushAPI(ThirdParties)",
-              "name": {
-                "value": "push API",
-                "synonyms": [
-                  "third parties"
-                ]
-              }
-            },
-            {
-              "id": "Challenges",
-              "name": {
-                "value": "challenges"
-              }
-            },
-            {
-              "id": "Connections",
-              "name": {
-                "value": "connections"
-              }
-            },
-            {
-              "id": "Courses",
-              "name": {
-                "value": "courses"
-              }
-            },
-            {
-              "id": "DailySummary",
-              "name": {
-                "value": "daily summary"
-              }
-            },
-            {
-              "id": "DeviceRegistration",
-              "name": {
-                "value": "device registration"
-              }
-            },
-            {
-              "id": "ModernDashboard",
-              "name": {
-                "value": "dashboard",
-                "synonyms": [
-                  "modern dashboard"
-                ]
-              }
-            },
-            {
-              "id": "MyFitnessPal",
-              "name": {
-                "value": "MyFitnessPal"
-              }
-            },
-            {
-              "id": "Reports",
-              "name": {
-                "value": "reports"
-              }
-            },
-            {
-              "id": "SegmentMatching",
-              "name": {
-                "value": "segment matching"
-              }
-            },
-            {
-              "id": "SleepSync",
-              "name": {
-                "value": "sleep sync",
-                "synonyms": [
-                  "sleep",
-                  "sleep synchronization"
-                ]
-              }
-            },
-            {
-              "id": "StepSync",
-              "name": {
-                "value": "step sync",
-                "synonyms": [
-                  "steps",
-                  "step synchronization"
-                ]
-              }
-            },
-            {
-              "id": "Strava",
-              "name": {
-                "value": "Strava"
-              }
-            },
-            {
-              "id": "Workouts",
-              "name": {
-                "value": "workouts"
+                "value": "features"
               }
             }
           ]

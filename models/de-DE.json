@@ -17,6 +17,8 @@
             "{item}",
             "dem Status von {item}",
             "dem aktuellen Status von {item}",
+            "dem Status aller {item}",
+            "dem aktuellen Status aller {item}",
             "{item} Status"
           ]
         },
@@ -42,126 +44,15 @@
           "name": "LIST_OF_ITEMS",
           "values": [
             {
-              "id": "ActivityDetails",
+              "id": "platforms",
               "name": {
-                "value": "Aktivitäten"
+                "value": "Plattformen"
               }
             },
             {
-              "id": "ActivityUploads",
+              "id": "features",
               "name": {
-                "value": "Aktivität hochladen",
-                "synonyms": [
-                  "Aktivität importieren"
-                ]
-              }
-            },
-            {
-              "id": "GearTracking",
-              "name": {
-                "value": "Ausrüstung"
-              }
-            },
-            {
-              "id": "Leaderboards",
-              "name": {
-                "value": "Ranglisten"
-              }
-            },
-            {
-              "id": "PushAPI(ThirdParties)",
-              "name": {
-                "value": "Partnerschnittstelle",
-                "synonyms": [
-                  "Partnerschnittstellen"
-                ]
-              }
-            },
-            {
-              "id": "Challenges",
-              "name": {
-                "value": "Wettbewerbe"
-              }
-            },
-            {
-              "id": "Connections",
-              "name": {
-                "value": "Verbindungen"
-              }
-            },
-            {
-              "id": "Courses",
-              "name": {
-                "value": "Strecken"
-              }
-            },
-            {
-              "id": "DailySummary",
-              "name": {
-                "value": "Tagesübersicht"
-              }
-            },
-            {
-              "id": "DeviceRegistration",
-              "name": {
-                "value": "Geräteregistrierung",
-                "synonyms": [
-                  "Registrierung von Geräten"
-                ]
-              }
-            },
-            {
-              "id": "ModernDashboard",
-              "name": {
-                "value": "Instrumententafel"
-              }
-            },
-            {
-              "id": "MyFitnessPal",
-              "name": {
-                "value": "MyFitnessPal"
-              }
-            },
-            {
-              "id": "Reports",
-              "name": {
-                "value": "Berichte"
-              }
-            },
-            {
-              "id": "SegmentMatching",
-              "name": {
-                "value": "Segmentabgleich"
-              }
-            },
-            {
-              "id": "SleepSync",
-              "name": {
-                "value": "Schlaf"
-              }
-            },
-            {
-              "id": "StepSync",
-              "name": {
-                "value": "Schritte",
-                "synonyms": [
-                  "Schritten"
-                ]
-              }
-            },
-            {
-              "id": "Strava",
-              "name": {
-                "value": "Strava"
-              }
-            },
-            {
-              "id": "Workouts",
-              "name": {
-                "value": "Trainingseinheiten",
-                "synonyms": [
-                  "Trainings"
-                ]
+                "value": "Features"
               }
             }
           ]
