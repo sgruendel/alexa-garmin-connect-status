@@ -12,7 +12,7 @@ describe('Garmin Connect Status', () => {
             expect(services.platforms.green, 'green platforms').to.have.length(7);
             expect(services.platforms.yellow, 'yellow platforms').to.have.length(0);
             expect(services.platforms.red, 'red platforms').to.have.length(0);
-            expect(services.features.green, 'green features').to.have.length(16);
+            expect(services.features.green, 'green features').to.have.length(17);
             expect(services.features.yellow, 'yellow features').to.have.length(0);
             expect(services.features.red, 'red features').to.have.length(0);
         });
@@ -107,7 +107,7 @@ describe('Garmin Connect Status', () => {
             expect(status.platforms.green, 'green platforms').to.have.length(7);
             expect(status.platforms.yellow, 'yellow platforms').to.have.length(0);
             expect(status.platforms.red, 'red platforms').to.have.length(0);
-            expect(status.features.green, 'green features').to.have.length(16);
+            expect(status.features.green, 'green features').to.have.length(17);
             expect(status.features.yellow, 'yellow features').to.have.length(0);
             expect(status.features.red, 'red features').to.have.length(0);
         });
