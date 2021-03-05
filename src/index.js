@@ -77,6 +77,11 @@ const languageStrings = {
         },
     },
 };
+i18next.use(sprintf).init({
+    overloadTranslationOptionHandler: sprintf.overloadTranslationOptionHandler,
+    resources: languageStrings,
+    returnObjects: true,
+});
 
 const GarminConnectStatusIntentHandler = {
     canHandle(handlerInput) {
@@ -240,12 +245,7 @@ const ErrorHandler = {
 
 const LocalizationInterceptor = {
     process(handlerInput) {
-        i18next.use(sprintf).init({
-            lng: handlerInput.requestEnvelope.request.locale,
-            overloadTranslationOptionHandler: sprintf.overloadTranslationOptionHandler,
-            resources: languageStrings,
-            returnObjects: true,
-        });
+        i18next.changeLanguage(Alexa.getLocale(handlerInput.requestEnvelope));
 
         const attributes = handlerInput.attributesManager.getRequestAttributes();
         attributes.t = (...args) => {
