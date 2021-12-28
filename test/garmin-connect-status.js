@@ -9,7 +9,7 @@ describe('Garmin Connect Status', () => {
         it('should parse all green', () => {
             const body = fs.readFileSync('test/GarminConnectStatus_all_green.html');
             const services = gcStatus.parseBody(body);
-            expect(services.platforms.green, 'green platforms').to.have.length(7);
+            expect(services.platforms.green, 'green platforms').to.have.length(8);
             expect(services.platforms.yellow, 'yellow platforms').to.have.length(0);
             expect(services.platforms.red, 'red platforms').to.have.length(0);
             expect(services.features.green, 'green features').to.have.length(17);
@@ -102,9 +102,9 @@ describe('Garmin Connect Status', () => {
     });
 
     describe('#getStatus()', () => {
-        it('should get status', async() => {
+        it('should get status', async () => {
             const status = await gcStatus.getStatus();
-            expect(status.platforms.green, 'green platforms').to.have.length(7);
+            expect(status.platforms.green, 'green platforms').to.have.length(8);
             expect(status.platforms.yellow, 'yellow platforms').to.have.length(0);
             expect(status.platforms.red, 'red platforms').to.have.length(0);
             expect(status.features.green, 'green features').to.have.length(17);
