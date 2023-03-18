@@ -32,7 +32,7 @@
     "ask-sdk-core": "^2.12.1",
     "ask-sdk-model": "^1.58.0",
     "cheerio": "^1.0.0-rc.12",
-    "i18next": "^22.4.11",
+    "i18next": "^22.4.12",
     "i18next-sprintf-postprocessor": "^0.2.2",
     "node-fetch": "^2.6.6",
     "winston": "^3.8.2"
