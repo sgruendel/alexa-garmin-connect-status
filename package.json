@@ -30,7 +30,7 @@
   "homepage": "https://github.com/sgruendel/alexa-garmin-connect-status#readme",
   "dependencies": {
     "ask-sdk-core": "^2.14.0",
-    "ask-sdk-model": "^1.80.0",
+    "ask-sdk-model": "^1.81.0",
     "cheerio": "^1.0.0-rc.12",
     "i18next": "^22.5.1",
     "i18next-sprintf-postprocessor": "^0.2.2",
