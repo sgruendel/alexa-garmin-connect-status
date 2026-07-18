@@ -1,76 +1,76 @@
 {
-  "name": "alexa-garmin-connect-status",
-  "version": "1.2.0",
-  "description": "Alexa Skill for checking Garmin Connect status",
-  "main": "index.js",
-  "scripts": {
-    "invoke": "aws lambda invoke --function-name garminConnectStatus --payload fileb://test/events/alexa-start-session.json test/out.txt && cat test/out.txt",
-    "test": "nyc --reporter=lcov --reporter=text mocha --timeout=10000",
-    "deploy-lambda": "npm prune --production && npm run lambda-zip && npm run lambda-update && npm install",
-    "lambda-zip": "zip -x 'node_modules/.cache/*' -r index.zip node_modules && cd src && zip ../index.zip *",
-    "lambda-update": "aws lambda update-function-code --function-name garminConnectStatus --zip-file fileb://index.zip",
-    "deploy-skill": "ask deploy --target skill",
-    "deploy-model": "ask deploy --target model"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sgruendel/alexa-garmin-connect-status.git"
-  },
-  "keywords": [
-    "alexa",
-    "skill",
-    "garmin",
-    "connect"
-  ],
-  "author": "Stefan Gründel",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/sgruendel/alexa-garmin-connect-status/issues"
-  },
-  "homepage": "https://github.com/sgruendel/alexa-garmin-connect-status#readme",
-  "dependencies": {
-    "ask-sdk-core": "^2.14.0",
-    "ask-sdk-model": "^1.86.0",
-    "cheerio": "^1.0.0-rc.12",
-    "i18next": "^26.3.6",
-    "i18next-sprintf-postprocessor": "^0.2.2",
-    "node-fetch": "^2.7.0",
-    "winston": "^3.19.0"
-  },
-  "devDependencies": {
-    "alexa-skill-test-framework": "^1.2.4",
-    "chai": "^6.2.2",
-    "eslint": "^10.7.0",
-    "eslint-config-strongloop": "^2.1.0",
-    "mocha": "^11.7.6",
-    "nyc": "^18.0.0"
-  },
-  "eslintConfig": {
-    "parserOptions": {
-      "ecmaVersion": 2017
+    "name": "alexa-garmin-connect-status",
+    "version": "1.2.0",
+    "description": "Alexa Skill for checking Garmin Connect status",
+    "main": "index.js",
+    "scripts": {
+        "invoke": "aws lambda invoke --function-name garminConnectStatus --payload fileb://test/events/alexa-start-session.json test/out.txt && cat test/out.txt",
+        "test": "nyc --reporter=lcov --reporter=text mocha --timeout=10000",
+        "deploy-lambda": "npm prune --production && npm run lambda-zip && npm run lambda-update && npm install",
+        "lambda-zip": "zip -x 'node_modules/.cache/*' -r index.zip node_modules && cd src && zip ../index.zip *",
+        "lambda-update": "aws lambda update-function-code --function-name garminConnectStatus --zip-file fileb://index.zip",
+        "deploy-skill": "ask deploy --target skill",
+        "deploy-model": "ask deploy --target model"
     },
-    "extends": "strongloop",
-    "env": {
-      "es6": true,
-      "node": true,
-      "mocha": true
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sgruendel/alexa-garmin-connect-status.git"
     },
-    "rules": {
-      "indent": [
-        "error",
-        4
-      ],
-      "max-len": [
-        "error",
-        120,
-        4,
-        {
-          "ignoreComments": true,
-          "ignoreUrls": true,
-          "ignoreStrings": true,
-          "ignorePattern": "^\\s*var\\s.+=\\s*(require\\s*\\()|(/)"
+    "keywords": [
+        "alexa",
+        "skill",
+        "garmin",
+        "connect"
+    ],
+    "author": "Stefan Gründel",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/sgruendel/alexa-garmin-connect-status/issues"
+    },
+    "homepage": "https://github.com/sgruendel/alexa-garmin-connect-status#readme",
+    "dependencies": {
+        "ask-sdk-core": "^2.14.0",
+        "ask-sdk-model": "^1.86.0",
+        "cheerio": "^1.0.0-rc.12",
+        "i18next": "^26.3.6",
+        "i18next-sprintf-postprocessor": "^0.2.2",
+        "node-fetch": "^2.7.0",
+        "winston": "^3.19.0"
+    },
+    "devDependencies": {
+        "alexa-skill-test-framework": "^1.2.4",
+        "chai": "^6.2.2",
+        "eslint": "^10.7.0",
+        "eslint-config-strongloop": "^2.1.0",
+        "mocha": "^11.7.6",
+        "nyc": "^18.0.0"
+    },
+    "eslintConfig": {
+        "parserOptions": {
+            "ecmaVersion": 2017
+        },
+        "extends": "strongloop",
+        "env": {
+            "es6": true,
+            "node": true,
+            "mocha": true
+        },
+        "rules": {
+            "indent": [
+                "error",
+                4
+            ],
+            "max-len": [
+                "error",
+                120,
+                4,
+                {
+                    "ignoreComments": true,
+                    "ignoreUrls": true,
+                    "ignoreStrings": true,
+                    "ignorePattern": "^\\s*var\\s.+=\\s*(require\\s*\\()|(/)"
+                }
+            ]
         }
-      ]
     }
-  }
 }
